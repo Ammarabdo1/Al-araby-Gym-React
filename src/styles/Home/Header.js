@@ -1,25 +1,16 @@
 import styled from '@emotion/styled';
 import { animated } from '@react-spring/web';
-
-const breakpoints = {
-  mobile: '480px',
-  tablet: '768px',
-  desktop: '1024px',
-};
+import { colors, media } from 'libs/themes.js';
 
 export const HeaderSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   position: relative;
   overflow: hidden;
   color: #fff;
-
-  @media (max-width: ${breakpoints.mobile}) {
-    justify-content: flex-start;
-    padding-top: 20px;
-  }
+  z-index: 1;
 `;
 
 export const BackgroundContainer = styled.div`
@@ -28,7 +19,6 @@ export const BackgroundContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
 `;
 
 export const AnimatedBackground = styled(animated.div)`
@@ -44,62 +34,72 @@ export const AnimatedBackground = styled(animated.div)`
   background-repeat: no-repeat;
   text-align: center;
   will-change: transform, opacity;
-
-  @media (max-width: ${breakpoints.mobile}) {
-  }
 `;
 
 export const Title = styled.h1`
-  font-size: 3rem;
-  margin: 0;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-
-  @media (max-width: ${breakpoints.mobile}) {
-    font-size: 7vw;
+  font-size: 8vw;
+  font-weight: 700;
+  color: ${colors.title};
+  @media (max-width: ${media.mobile}) {
+    font-size: 15vw;
   }
 
-  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.desktop}) {
-    font-size: 7vw;
+  @media (min-width: ${media.mobile}) and (max-width: ${media.tablet}) {
+    font-size: 16vw;
   }
 `;
 
 export const Subtitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 3vw;
   margin: 10px 0;
   font-weight: 400;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  color: ${colors.subTitle};
 
-  @media (max-width: ${breakpoints.mobile}) {
-    font-size: 1rem;
+  /* Background Transition Effect */
+  padding: 5px;
+  background-image: linear-gradient(to left,#1f364a ,white );
+  background-position: 200% center;
+  background-size: 200% 100%;
+  animation: ${props => props.imageChanging ? 'slideIn 1s ease-out forwards' : 'none'};
+
+  @keyframes slideIn {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: left;
+    }
   }
 
-  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.desktop}) {
-    font-size: 1.25rem;
+  @media (max-width: ${media.mobile}) {
+    font-size: 4vw;
+  }
+
+  @media (min-width: ${media.mobile}) and (max-width: ${media.tablet}) {
+    font-size: 4vw;
   }
 `;
 
-export const ContactButton = styled.button`
+export const ContactButton = styled.div`
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 1rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #007bff;
-  color: white;
+  background-color: ${colors.btn_bg};
+  color: ${colors.btn_text};
   transition: background-color 0.3s;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
   &:hover {
     background-color: #0056b3;
   }
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media (max-width: ${media.mobile}) {
     font-size: 0.9rem;
     padding: 8px 16px;
   }
 
-  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.desktop}) {
+  @media (min-width: ${media.tablet}) and (max-width: ${media.desktop}) {
     font-size: 1rem;
     padding: 10px 18px;
   }
