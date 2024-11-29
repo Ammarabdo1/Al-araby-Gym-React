@@ -12,7 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Button } from "@mui/material";
 import { Facebook, WhatsApp } from "@mui/icons-material";
 import Btn from "designs/Button";
-import { colors, media } from "libs/themes.js";
+import { colors } from "libs/themes.js";
 import ImgInstagram from "assets/images/instagram.ico";
 
 function NavBar() {
@@ -96,19 +96,19 @@ function NavBar() {
               {isMobile && (
                 <>
                   {" "}
-                  <Btn>
+                  <Button>
                     <WhatsApp
                       style={{ color: colors.whatsApp, fontSize: "2rem" }}
                     />
-                  </Btn>
-                  <Btn>
+                  </Button>
+                  <Button>
                     <Facebook
                       style={{ color: colors.facebook, fontSize: "2rem" }}
                     />
-                  </Btn>
-                  <Btn>
+                  </Button>
+                  <Button>
                     <img src={ImgInstagram} alt="Instagram" />
-                  </Btn>
+                  </Button>
                 </>
               )}
             </div>

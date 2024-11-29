@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { colors, media } from "libs/themes";
+import { flashRightToLeft } from "libs/frames";
 
 export const NavbarContainer = styled.div`
   position: relative;
@@ -29,6 +30,7 @@ export const NavbarContainer = styled.div`
 
   .link {
     color: ${colors.link};
+  
     &:hover {
       color: ${colors.link_hover};
     }
@@ -59,7 +61,7 @@ export const NavbarContainer = styled.div`
   }
 
   .link.active {
-    color: ${colors.title};
+    color: ${colors.title} !important;
   }
 
   .social-buttons {

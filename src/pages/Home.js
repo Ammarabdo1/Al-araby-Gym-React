@@ -1,12 +1,13 @@
 import React from 'react'
 import NavBar from 'components/Navbar.jsx'
 import Header from 'components/Home/Header.jsx'
+import AboutUs from 'components/Home/AboutUs'
 
 const Home = () => {
   return (
-    <div style={{position:"relative"}} >
-      <NavBar/>
+    <div>
       <Header/>
+      <AboutUs/>
     </div>
   )
 }

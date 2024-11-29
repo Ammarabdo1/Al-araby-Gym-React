@@ -5,8 +5,9 @@ export const colors = {
     link: 'white',
     link_hover: 'silver',
 
+    btn: '#a33f3a',
     btn_bg: '#ffde87',
-    btn_hover_bg: '#1f364a',
+    btn_hover_bg: '#1f1f1f',
 
     bg: '#1f1f1f',
 
