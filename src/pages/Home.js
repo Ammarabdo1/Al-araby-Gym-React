@@ -1,13 +1,12 @@
 import React from 'react'
-import NavBar from 'components/Navbar.jsx'
 import Header from 'components/Home/Header.jsx'
-import AboutUs from 'components/Home/AboutUs'
+import ServicesSection from 'components/Home/Services'
 
 const Home = () => {
   return (
     <div>
       <Header/>
-      <AboutUs/>
+      <ServicesSection/>
     </div>
   )
 }

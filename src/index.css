@@ -6,6 +6,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+html {
+  scrollbar-color: #ffde87 #1f1f1f;
+  scrollbar-width: thin;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -14,4 +20,6 @@ code {
 * {
   direction: rtl;
   text-align: right;
+  /* color: #1f1f1fe4; */
+  /* color: #ffffffad ; */
 }

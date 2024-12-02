@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <HeaderSection>
       <HeaderContainer></HeaderContainer>
-      <Title>العربي جيم</Title>
+      <Title.Header>العربي جيم</Title.Header>
       <Title.Sub>هنحققلك هدفك بما يتناسب مع نظام حياتك وبالسعر المناسب ليك</Title.Sub>
       <Btn>أبدأ رحلتك <RocketLaunchIcon className='rock-icon' /> </Btn>
     </HeaderSection>

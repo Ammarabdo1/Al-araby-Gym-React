@@ -1,5 +1,6 @@
 export const colors = {
     title: '#ffde87',
+    subTitle:'#a33f3a',
     des: 'silver',
 
     link: 'white',
@@ -10,6 +11,9 @@ export const colors = {
     btn_hover_bg: '#1f1f1f',
 
     bg: '#1f1f1f',
+
+    bg_hover: '#1f1f1fe4',
+    shadow: '0 4px 8px #ffffffad',
 
     whatsApp: '#25d366',
     facebook: '#1877f2'

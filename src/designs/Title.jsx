@@ -1,73 +1,22 @@
 import React from "react";
-import { Typography } from "@mui/material";
-import styled from "@emotion/styled";
-import { colors, media } from "libs/themes";
-import { flashRightToLeft } from "libs/frames";
+import {Text,
+  HeaderTitleText,
+  SubHeaderTitleText}
+from 'styles/designs/Title'
 
 const Title = ({ children }) => {
   return <Text variant="h1">{children}</Text>;
 };
 
-const Sub = ({ children }) => {
-  return <SubText variant="h2">{children}</SubText>;
+const HeaderTitle = ({ children }) => {
+  return <HeaderTitleText variant="h1">{children}</HeaderTitleText>;
 };
 
-Title.Sub = Sub;
+const SubHeaderTitle = ({ children }) => {
+  return <SubHeaderTitleText variant="h2">{children}</SubHeaderTitleText>;
+};
 
-const Text = styled(Typography)`
-  //! font style
-  font-size: 8vw;
-  font-family: "Cairo", "Arial", sans-serif;
-  font-weight: 900;
-  color: ${colors.title};
-
-  //! 3d theme
-  text-shadow: 1px 1px 0px ${colors.title}, 3px 3px 0px ${colors.btn},
-    5px 5px 5px ${colors.btn}, 4px 5px 5px ${colors.title};
-
-  //! media
-  @media (max-width: ${media.mobile}) {
-    font-size: 15vw;
-  }
-
-  @media (min-width: ${media.mobile}) and (max-width: ${media.tablet}) {
-    font-size: 13vw;
-  }
-`;
-
-const SubText = styled(Typography)`
-  font-size: 3vw;
-  margin: 20px 0;
-  font-weight: 400;
-  color: ${colors.title};
-  position: relative;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  
-  &::after {
-    content: "";
-    position: absolute;
-    top: -7px;
-    left: 50%;
-    transform: translate(-50%);
-    border: 1px solid ${colors.btn};
-    width: 60vw;
-    box-shadow: 0 -10px 20px 5px ${colors.title};
-    @media (max-width: ${media.mobile}) {
-      top: -5px;
-      width: 80vw;
-    }
-  }
-
-  @media (min-width: ${media.mobile}) and (max-width: ${media.tablet}) {
-    font-size: 5vw;
-    width: 80%;
-  }
-
-  @media (max-width: ${media.mobile}) {
-    font-size: 5vw;
-    width: 80%;
-  }
-`;
+Title.Header = HeaderTitle;
+Title.Sub = SubHeaderTitle;
 
 export default Title;

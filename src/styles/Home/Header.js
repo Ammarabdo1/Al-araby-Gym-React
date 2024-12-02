@@ -20,51 +20,6 @@ export const HeaderSection = styled.div`
 
 export const HeaderContainer = styled.div``;
 
-export const Title = styled.h1`
-  font-size: 8vw;
-  font-weight: 700;
-  color: ${colors.title};
-  @media (max-width: ${media.mobile}) {
-    font-size: 15vw;
-  }
-
-  @media (min-width: ${media.mobile}) and (max-width: ${media.tablet}) {
-    font-size: 16vw;
-  }
-`;
-
-export const Subtitle = styled.h2`
-  font-size: 3vw;
-  margin: 10px 0;
-  font-weight: 400;
-  color: ${colors.subTitle};
-
-  /* Background Transition Effect */
-  padding: 5px;
-  background-image: linear-gradient(to left, #1f364a, white);
-  background-position: 200% center;
-  background-size: 200% 100%;
-  animation: ${(props) =>
-    props.imageChanging ? "slideIn 1s ease-out forwards" : "none"};
-
-  @keyframes slideIn {
-    0% {
-      background-position: 200% center;
-    }
-    100% {
-      background-position: left;
-    }
-  }
-
-  @media (max-width: ${media.mobile}) {
-    font-size: 4vw;
-  }
-
-  @media (min-width: ${media.mobile}) and (max-width: ${media.tablet}) {
-    font-size: 4vw;
-  }
-`;
-
 export const ContactButton = styled.div`
   margin-top: 20px;
   padding: 10px 20px;
