@@ -5,13 +5,14 @@ import { colors, media } from "libs/themes";
 export const Text = styled(Typography)`
   //! font style
   font-size: 5vw;
-  font-family: "Cairo", "Arial", sans-serif;
-  font-weight: 900;
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
   color: ${colors.title};
+  text-align: center;
 
   //! media
   @media (max-width: ${media.mobile}) {
-    font-size: 15vw;
+    font-size: 13vw;
   }
 
   @media (min-width: ${media.mobile}) and (max-width: ${media.tablet}) {
@@ -22,7 +23,6 @@ export const Text = styled(Typography)`
 export const HeaderTitleText = styled(Typography)`
   //! font style
   font-size: 8vw;
-  font-family: "Cairo", "Arial", sans-serif;
   font-weight: 900;
   color: ${colors.title};
   //! 3d theme

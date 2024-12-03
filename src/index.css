@@ -12,14 +12,11 @@ html {
   scrollbar-width: thin;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 * {
   direction: rtl;
   text-align: right;
-  /* color: #1f1f1fe4; */
+  /* color: #1f1f1fb1; */
   /* color: #ffffffad ; */
+  /* color: #a33f3a74 ; */
+  /* color: #ffdd8758 */
 }

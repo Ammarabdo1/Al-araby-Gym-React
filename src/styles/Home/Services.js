@@ -1,13 +1,24 @@
 import styled from "@emotion/styled";
 import { Card } from "@mui/material";
 import { colors, media } from "libs/themes";
+import { AfterLayout } from "utils/GeneralStyles";
+import FireBg from 'assets/images/Fire.png'
 
 export const ServicesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1.2rem;
+  padding-top: 3rem;
   background: ${colors.bg};
+
+  position: relative;
+  z-index: 1;
+  &::before {
+    ${AfterLayout("#a33f3a37")}
+    background-image: url(${FireBg});
+    opacity: .3;
+  }
 
   .grid {
     margin-left: 2rem;
@@ -22,8 +33,9 @@ export const ServicesContainer = styled.div`
 `;
 
 export const ServiceCard = styled(Card)`
-  width: 100%;
-  max-width: 310px;
+  width: 20vw;
+  height: 90%;
+  min-width: 280px;
   margin-top: 1.5rem;
   text-align: center;
   background-size: cover;
@@ -43,7 +55,12 @@ export const ServiceCard = styled(Card)`
     width: 100%;
     height: 100%;
     background: ${colors.bg_hover};
+    backdrop-filter: blur(2px);
     z-index: -1;
+  }
+  @media (max-width: ${media.mobile}) {
+    width: 100%;
+  height: 90%;
   }
 `;
 
@@ -53,4 +70,5 @@ export const IconWrapper = styled.div`
   align-items: center;
   padding: 1rem;
   color: #a33f3a;
+
 `;

@@ -1,10 +1,18 @@
 import styled from "@emotion/styled";
 import { colors, media } from "libs/themes";
-import { flashRightToLeft } from "libs/frames";
+
+import { AfterLayout } from "utils/GeneralStyles";
+import FireBg from "assets/images/Fire.png";
 
 export const NavbarContainer = styled.div`
-  position: relative;
   .navbar {
+    position: relative;
+    z-index: 1;
+    &::before {
+      ${AfterLayout("#a33f3a37")}
+      background-image: url(${FireBg});
+      opacity: 0.2;
+    }
     position: absolute;
     width: 100%;
     background: ${colors.bg};
@@ -30,7 +38,7 @@ export const NavbarContainer = styled.div`
 
   .link {
     color: ${colors.link};
-  
+
     &:hover {
       color: ${colors.link_hover};
     }
