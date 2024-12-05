@@ -14,6 +14,7 @@ import { Facebook, WhatsApp } from "@mui/icons-material";
 import Btn from "designs/Button";
 import { colors } from "libs/themes.js";
 import ImgInstagram from "assets/images/instagram.ico";
+import { centerStyles } from "utils/GeneralStyles";
 
 function NavBar() {
   const [isMobile, setIsMobile] = useState(false);
@@ -88,7 +89,7 @@ function NavBar() {
             {!isMobile && (
               <Btn>
                 <WhatsApp
-                  style={{ color: colors.whatsApp, fontSize: "1.5rem" }}
+                  style={{ color: colors.whatsApp, fontSize: "1.5rem", marginRight: '0' }}
                 />
               </Btn>
             )}

@@ -10,6 +10,13 @@ export const Text = styled(Typography)`
   color: ${colors.title};
   text-align: center;
 
+  svg {
+    font-size: 3vw;
+    @media (max-width: ${media.tablet}) {
+      font-size: 10vw;
+    }
+  }
+
   //! media
   @media (max-width: ${media.mobile}) {
     font-size: 13vw;

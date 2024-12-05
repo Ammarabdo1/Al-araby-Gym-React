@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Card } from "@mui/material";
 import { colors, media } from "libs/themes";
 import { AfterLayout } from "utils/GeneralStyles";
-import FireBg from 'assets/images/Fire.png'
+import FireBg from "assets/images/Fire.png";
 
 export const ServicesContainer = styled.div`
   display: flex;
@@ -11,13 +11,14 @@ export const ServicesContainer = styled.div`
   padding: 1.2rem;
   padding-top: 3rem;
   background: ${colors.bg};
+  overflow: hidden;
 
   position: relative;
   z-index: 1;
   &::before {
     ${AfterLayout("#a33f3a37")}
     background-image: url(${FireBg});
-    opacity: .3;
+    opacity: 0.3;
   }
 
   .grid {
@@ -26,9 +27,8 @@ export const ServicesContainer = styled.div`
 
   @media (max-width: ${media.mobile}) {
     .grid {
-    margin-left: 0;
-  }
-
+      margin-left: 0;
+    }
   }
 `;
 
@@ -55,12 +55,32 @@ export const ServiceCard = styled(Card)`
     width: 100%;
     height: 100%;
     background: ${colors.bg_hover};
-    backdrop-filter: blur(2px);
     z-index: -1;
   }
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+
+    &::after {
+      background: url(${FireBg});
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to left, ${colors.after_hover}, ${colors.bg_hover});
+      z-index: -1;
+    }
+  }
+
   @media (max-width: ${media.mobile}) {
     width: 100%;
-  height: 90%;
+    height: 90%;
   }
 `;
 
@@ -70,5 +90,4 @@ export const IconWrapper = styled.div`
   align-items: center;
   padding: 1rem;
   color: #a33f3a;
-
 `;

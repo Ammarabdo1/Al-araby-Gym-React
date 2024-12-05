@@ -3,6 +3,10 @@ import { animated } from "@react-spring/web";
 import { colors, media } from "libs/themes.js";
 import bgImg from "assets/images/header/1.jpg";
 
+export const HeaderContainer = styled.div`
+  overflow: hidden
+`
+
 export const HeaderSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,13 +16,10 @@ export const HeaderSection = styled.div`
   background: url(${bgImg});
   background-position: 0 -300px;
   background-size: cover;
-
   @media (max-width: ${media.mobile}) {
     background-position: center;
   }
 `;
-
-export const HeaderContainer = styled.div``;
 
 export const ContactButton = styled.div`
   margin-top: 20px;

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { colors, media } from "libs/themes";
 
-import { AfterLayout } from "utils/GeneralStyles";
+import { AfterLayout, centerStyles } from "utils/GeneralStyles";
 import FireBg from "assets/images/Fire.png";
 
 export const NavbarContainer = styled.div`
@@ -31,6 +31,7 @@ export const NavbarContainer = styled.div`
       box-shadow: none;
     }
   }
+
 
   img {
     height: 40px;

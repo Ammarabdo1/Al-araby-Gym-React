@@ -4,6 +4,7 @@ import { colors, media, themes } from "libs/themes";
 
 export const Des = styled(Typography)`
   font-size: ${({ isSub }) => (isSub ? "1vw" : "1.7vw")};
+  ${({isSub}) => !isSub && `background: ${colors.bg_hover};`}
   margin: 10px 0;
   font-weight: 400;
   color: ${colors.title};

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import Grid from "@mui/material/Grid";
 import { colors, media } from "libs/themes";
 import { AfterLayout, centerStyles } from "utils/GeneralStyles";
-import FireBg from 'assets/images/Fire.png'
+import FireBg from "assets/images/Fire.png";
 
 export const AboutContainer = styled(Grid)`
   background: ${colors.bg};
@@ -10,10 +10,11 @@ export const AboutContainer = styled(Grid)`
   position: relative;
   z-index: 1;
   &::before {
-    ${AfterLayout("#a33f3a37")}
+    ${AfterLayout()}
     background-image: url(${FireBg});
-    opacity: .3;
+    opacity: 0.3;
   }
+  overflow: hidden;
 `;
 
 export const Text = styled(Grid)`
@@ -36,12 +37,24 @@ export const Text = styled(Grid)`
 
   @media (max-width: ${media.tablet}) {
     h1 {
-        width: 90%;
+      width: 90%;
     }
     h6 {
       width: 90%;
     }
     padding-right: 0px;
+  }
+`;
+
+export const ContactBtn = styled.div`
+  width: 100%;
+  margin: 20px 0;
+  svg {
+    margin-right: 10px;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    width: 90%;
   }
 `;
 
@@ -67,5 +80,10 @@ export const Image = styled(Grid)`
       max-width: 100%;
     }
     margin-top: 30px;
+    &::after {
+      ${AfterLayout(colors.after_hover)}
+      top: -70px;
+      height: 155%;
+    }
   }
 `;

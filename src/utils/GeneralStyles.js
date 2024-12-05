@@ -1,11 +1,12 @@
 import { css } from "@emotion/react";
+import { flashRightToLeft } from "libs/frames";
 import { colors, media } from "libs/themes";
 
-export const centerStyles = (direction = "column") => css`
+export const centerStyles = (direction = "column", row = 'center', column = 'center') => css`
   display: flex;
   flex-direction: ${direction};
-  justify-content: center;
-  align-items: center;
+  justify-content: ${column};
+  align-items: ${row};
 `;
 
 export const AfterLayout = (background = colors.bg_hover) => css`

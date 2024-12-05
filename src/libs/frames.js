@@ -1,8 +1,8 @@
-import { keyframes } from '@emotion/react';
+import { keyframes } from "@emotion/react";
 
-export const flashRightToLeft = keyframes`
+export const flashRightToLeft = (position) => keyframes`
   0% {
-    background-position: 200%;
+    background-position: ${position === "left" ? "-200%" : "200%"};
   }
   10% {
     background-position: 0%;
@@ -12,8 +12,20 @@ export const flashRightToLeft = keyframes`
   }
 `;
 
-export const rotate3D = keyframes`
-0% { transform: rotateX(0deg) rotateY(0deg); }
-50% { transform: rotateX(180deg) rotateY(180deg); }
-100% { transform: rotateX(360deg) rotateY(360deg); }
+export const MoveTOLeft = (Displacement) => keyframes`
+  0% {
+    transform: translateX(0px);
+  }
+
+  40% {
+    transform: translateX(${Displacement}px);
+  }
+
+  70% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
 `;

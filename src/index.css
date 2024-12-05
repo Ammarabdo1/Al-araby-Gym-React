@@ -7,6 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background-color: #ffde87;
+  color: #a33f3a;
+}
+
+::-webkit-selection {
+  background-color: #ffde87;
+  color: #a33f3a;
+}
+
 html {
   scrollbar-color: #ffde87 #1f1f1f;
   scrollbar-width: thin;
@@ -16,7 +26,8 @@ html {
   direction: rtl;
   text-align: right;
   /* color: #1f1f1fb1; */
-  /* color: #ffffffad ; */
+  /* color: #ffffff94 ; */
   /* color: #a33f3a74 ; */
-  /* color: #ffdd8758 */
+  /* color: #ffdd87b8 */
+  /* color: #d0865827 */
 }

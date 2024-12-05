@@ -1,19 +1,31 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Text,
   HeaderTitleText,
   SubHeaderTitleText}
 from 'styles/designs/Title'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import { InitialAos } from "utils/initialAos";
 
 const Title = ({ children }) => {
-  return <Text variant="h1">{children}</Text>;
+  useEffect(() => {
+    InitialAos(Aos)
+  }, []);
+  return <Text data-aos='zoom-in' variant="h1">{children}</Text>;
 };
 
 const HeaderTitle = ({ children }) => {
-  return <HeaderTitleText variant="h1">{children}</HeaderTitleText>;
+  useEffect(() => {
+    InitialAos(Aos)
+  }, []);
+  return <HeaderTitleText data-aos='zoom-in' variant="h1">{children}</HeaderTitleText>;
 };
 
 const SubHeaderTitle = ({ children }) => {
-  return <SubHeaderTitleText variant="h2">{children}</SubHeaderTitleText>;
+  useEffect(() => {
+    InitialAos(Aos)
+  }, []);
+  return <SubHeaderTitleText data-aos='fade-right' variant="h2">{children}</SubHeaderTitleText>;
 };
 
 Title.Header = HeaderTitle;

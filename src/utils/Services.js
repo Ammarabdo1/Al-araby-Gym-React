@@ -7,31 +7,33 @@ import Personal from 'assets/images/ServiceCard/PersonalTraning.jpg'
 import healthy from 'assets/images/ServiceCard/healthyFood.jpg'
 import brok from 'assets/images/ServiceCard/Brok.jpg'
 import fintnes from 'assets/images/ServiceCard/fitnes.jpg'
+import { title } from "./titles-text";
+import { desc } from "./decription-text";
 
 // Service data
 export const services = [
     {
       icon: <FitnessCenterIcon fontSize="large" />,
-      title: "التدريب الشخصي",
-      description: "احصل على خطط مخصصة لتحقيق أهدافك الرياضية.",
+      title: title.CardService[0],
+      description: desc.Service[0],
       bg: Personal
     },
     {
       icon: <GroupIcon fontSize="large" />,
-      title: " التغذية العلاجية",
-      description: "انضم إلى جلسات ممتعة تلائم مستويات مختلفة.",
+      title:  title.CardService[1],
+      description: desc.Service[1],
       bg: healthy
     },
     {
       icon: <HealthAndSafetyIcon fontSize="large" />,
-      title: "التعافي من الإصابات",
-      description: "تعاون مع الخبراء لاستعادة قوتك بعد الإصابات.",
+      title:  title.CardService[2],
+      description: desc.Service[2],
       bg: brok
     },
     {
       icon: <SportsGymnasticsIcon fontSize="large" />,
-      title: "اللياقة البدنية",
-      description: "طور قوتك وتحملك مع برامج شاملة للياقة البدنية.",
+      title:  title.CardService[3],
+      description: desc.Service[3],
       bg: fintnes
     },
   ];
