@@ -5,10 +5,8 @@ import { AfterLayout, centerStyles } from "utils/GeneralStyles";
 import FireBg from "assets/images/Fire.png";
 
 export const ProjectsContainer = styled(Grid)`
-  padding-top: 3rem;
-  padding-bottom: 10rem;
+  padding-bottom: 14rem;
   background: ${colors.bg};
-  min-height: 80vh;
   position: relative;
   z-index: 1;
   &::after {

@@ -8,11 +8,9 @@ export const ServicesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.2rem;
-  padding-top: 3rem;
+  padding: 3rem 1.2rem 14rem 1.2rem;
   background: ${colors.bg};
   overflow: hidden;
-
   position: relative;
   z-index: 1;
   &::before {

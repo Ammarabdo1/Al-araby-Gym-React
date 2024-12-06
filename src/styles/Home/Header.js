@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { animated } from "@react-spring/web";
 import { colors, media } from "libs/themes.js";
 import bgImg from "assets/images/header/1.jpg";
+import { AfterLayout } from "utils/GeneralStyles";
 
 export const HeaderContainer = styled.div`
   overflow: hidden
@@ -16,8 +17,13 @@ export const HeaderSection = styled.div`
   background: url(${bgImg});
   background-position: 0 -300px;
   background-size: cover;
+
   @media (max-width: ${media.mobile}) {
     background-position: center;
+    &::after {
+      ${AfterLayout()}
+      background: ${colors.bg_hover};
+    }
   }
 `;
 

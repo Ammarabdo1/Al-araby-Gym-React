@@ -9,12 +9,12 @@ import { InitialAos } from "utils/initialAos";
 
 const Header = () => {
   useEffect(() => {
-    InitialAos(Aos)
+    InitialAos(Aos, 3000)
   }, []);
 
   return (
     <HeaderContainer>
-      <HeaderSection data-aos="zoom-out">
+      <HeaderSection data-aos="zoom-out" data-aos-duration='1500'>
         <Title.Header>العربي جيم</Title.Header>
         <Title.Sub>
           هنحققلك هدفك بما يتناسب مع نظام حياتك وبالسعر المناسب ليك
