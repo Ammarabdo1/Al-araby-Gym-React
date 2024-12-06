@@ -1,28 +1,31 @@
 import styled from "@emotion/styled";
-import { animated } from "@react-spring/web";
 import { colors, media } from "libs/themes.js";
 import bgImg from "assets/images/header/1.jpg";
 import { AfterLayout } from "utils/GeneralStyles";
 
 export const HeaderContainer = styled.div`
-  overflow: hidden
-`
+  overflow: hidden;
+  background: ${colors.bg};
+`;
 
 export const HeaderSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
   background: url(${bgImg});
-  background-position: 0 -300px;
+  background-position: center -200px;
   background-size: cover;
 
   @media (max-width: ${media.mobile}) {
+    background: url(${({ BgImg }) => BgImg});
     background-position: center;
+    background-size: cover;
     &::after {
       ${AfterLayout()}
-      background: ${colors.bg_hover};
+      background: radial-gradient(circle, ${colors.bg_hover}, ${colors.after_hover});
+      background-size: cover;
     }
   }
 `;

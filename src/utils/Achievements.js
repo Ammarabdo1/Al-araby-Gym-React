@@ -3,7 +3,7 @@ import StarRateIcon from '@mui/icons-material/StarRate';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 
 import { title } from "./titles-text";
-import { desc } from "./decription-text";
+import { desc } from "./description-text";
 
 export const achievements = [
     {

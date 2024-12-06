@@ -14,6 +14,10 @@ export const ProjectsContainer = styled(Grid)`
     background-image: url(${FireBg});
     opacity: 0.3;
   }
+
+  @media (max-width: ${media.mobile}) {
+    padding-bottom: 10rem;
+  }
 `;
 
 export const TextSide = styled(Grid)`
@@ -38,9 +42,9 @@ export const TextSide = styled(Grid)`
       width: 90%;
     }
     h6 {
-        width: 90%;
-        font-size: 6vw;
-        background: transparent;
+      width: 90%;
+      font-size: 6vw;
+      background: transparent;
     }
     padding-right: 0px;
   }

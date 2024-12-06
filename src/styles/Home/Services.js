@@ -27,6 +27,8 @@ export const ServicesContainer = styled.div`
     .grid {
       margin-left: 0;
     }
+    
+    padding-bottom: 10rem;
   }
 `;
 

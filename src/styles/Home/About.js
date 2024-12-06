@@ -5,6 +5,7 @@ import { AfterLayout, centerStyles } from "utils/GeneralStyles";
 import FireBg from "assets/images/Fire.png";
 
 export const AboutContainer = styled(Grid)`
+  overflow: hidden;
   background: ${colors.bg};
   padding-bottom: 14rem;
   position: relative;
@@ -14,7 +15,10 @@ export const AboutContainer = styled(Grid)`
     background-image: url(${FireBg});
     opacity: 0.3;
   }
-  overflow: hidden;
+
+  @media (max-width: ${media.mobile}) {
+    padding-bottom: 10rem;
+  }
 `;
 
 export const Text = styled(Grid)`

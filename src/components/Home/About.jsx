@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Title, Description, Btn } from "designs";
 import { AboutContainer, Text, Image, ContactBtn } from "styles/Home/About";
 import AboutImg from "assets/images/About.png";
-import { desc } from "utils/decription-text";
+import { desc } from "utils/description-text";
 import { title } from "utils/titles-text";
 import { Button, useMediaQuery } from "@mui/material";
 import { media } from "libs/themes";

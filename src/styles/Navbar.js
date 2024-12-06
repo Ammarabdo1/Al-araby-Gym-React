@@ -15,7 +15,8 @@ export const NavbarContainer = styled.div`
     }
     position: absolute;
     width: 100%;
-    background: ${colors.bg};
+    background: ${colors.bg_hover};
+    backdrop-filter: blur(15px);
     z-index: 999;
   }
   .navbar-toggler {

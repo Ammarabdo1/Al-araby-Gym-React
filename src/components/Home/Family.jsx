@@ -10,7 +10,7 @@ import SwiperJs from "designs/Swiper";
 import { Btn, Description, ProjectSteps, Title } from "designs";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { title } from "utils/titles-text";
-import { desc } from "utils/decription-text";
+import { desc } from "utils/description-text";
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech'
 
 const Family = () => {

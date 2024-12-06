@@ -8,7 +8,7 @@ import healthy from 'assets/images/ServiceCard/healthyFood.jpg'
 import brok from 'assets/images/ServiceCard/Brok.jpg'
 import fintnes from 'assets/images/ServiceCard/fitnes.jpg'
 import { title } from "./titles-text";
-import { desc } from "./decription-text";
+import { desc } from "./description-text";
 
 // Service data
 export const services = [
