@@ -55,6 +55,8 @@ export const SubHeaderTitleText = styled(Typography)`
   text-align: center;
   backdrop-filter: blur(10px);
 
+  text-shadow: 1px 2px 2px ${colors.subTitle};
+
   &::after {
     content: "";
     position: absolute;
@@ -80,4 +82,3 @@ export const SubHeaderTitleText = styled(Typography)`
     width: 80%;
   }
 `;
-

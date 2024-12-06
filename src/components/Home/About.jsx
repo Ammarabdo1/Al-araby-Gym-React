@@ -8,8 +8,8 @@ import { Button, useMediaQuery } from "@mui/material";
 import { media } from "libs/themes";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import Aos from 'aos'
-import 'aos/dist/aos.css'
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { InitialAos } from "utils/initialAos";
 
 const About = () => {
@@ -18,7 +18,7 @@ const About = () => {
 
   useEffect(() => {
     InitialAos(Aos);
-  }, [])
+  }, []);
 
   return (
     <AboutContainer container>
@@ -39,7 +39,15 @@ const About = () => {
           </>
         )}
         {isMobile && showMoreText && (
-          <Button onClick={() => setShowMoreText(false)}>
+          <Button
+            onClick={() => {
+              setShowMoreText(false);
+              window.scrollBy({
+                top: -1000,
+                behavior: 'smooth'
+              });
+            }}
+          >
             {" "}
             قراءة محتوي أقل.
           </Button>
@@ -52,7 +60,7 @@ const About = () => {
         </ContactBtn>
       </Text>
 
-      <Image data-aos='zoom-in' lg={6} md={12} xs={12}>
+      <Image data-aos="zoom-in" lg={6} md={12} xs={12}>
         <img src={AboutImg} alt="About Us" />
       </Image>
     </AboutContainer>

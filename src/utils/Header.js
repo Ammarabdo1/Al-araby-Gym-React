@@ -6,22 +6,22 @@ import { desc } from "./description-text";
 
 export const HeaderContent = [
   {
-    Desc: desc.Header,
+    Desc: desc.Header[0],
     BgImg: Bg1,
   },
 
   {
-    Desc: desc.Header,
+    Desc: desc.Header[1],
     BgImg: Bg2,
   },
 
   {
-    Desc: desc.Header,
+    Desc: desc.Header[2],
     BgImg: Bg3,
   },
 
   {
-    Desc: desc.Header,
+    Desc: desc.Header[3],
     BgImg: Bg4,
   },
 ];
