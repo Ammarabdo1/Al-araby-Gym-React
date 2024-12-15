@@ -12,6 +12,24 @@ export const flashRightToLeft = (position) => keyframes`
   }
 `;
 
+export const moveBackGround = (isMobile) => keyframes`
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: ${isMobile ? "0% -200%" : "-100% -200%"};
+  }
+`;
+
+export const RotateBackGround = keyframes`
+  0% {
+    transform: rotate(0deg); /* Start position */
+  }
+  100% {
+    transform: rotate(1440deg); /* End position */
+  }
+`;
+
 export const MoveTOLeft = (Displacement) => keyframes`
   0% {
     transform: translateX(0px);

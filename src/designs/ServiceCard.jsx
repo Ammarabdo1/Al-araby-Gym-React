@@ -12,9 +12,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { media } from "libs/themes";
 
 const Service = ({index, service}) => {
-  useEffect(() => {
-    InitialAos(Aos)
-  }, []);
+  useEffect(() => InitialAos(Aos), []);
 
   const isMobile = useMediaQuery(`(max-width: ${media.mobile})`);
 

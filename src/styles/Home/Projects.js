@@ -9,10 +9,14 @@ export const ProjectsContainer = styled(Grid)`
   background: ${colors.bg};
   position: relative;
   z-index: 1;
+  overflow: hidden;
   &::after {
     ${AfterLayout()}
     background-image: url(${FireBg});
-    opacity: 0.3;
+    @media (max-width: ${media.mobile}) {
+      background-size: contain;
+    }
+    opacity: 0.5;
   }
 
   @media (max-width: ${media.mobile}) {

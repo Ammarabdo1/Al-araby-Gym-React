@@ -8,7 +8,7 @@ export const ServicesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 1.2rem 14rem 1.2rem;
+  padding: 0rem 1.2rem 16rem 1.2rem;
   background: ${colors.bg};
   overflow: hidden;
   position: relative;
@@ -16,7 +16,10 @@ export const ServicesContainer = styled.div`
   &::before {
     ${AfterLayout("#a33f3a37")}
     background-image: url(${FireBg});
-    opacity: 0.3;
+    @media (max-width: ${media.mobile}) {
+      background-size: contain;
+    }
+    opacity: 0.5;
   }
 
   .grid {

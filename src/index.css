@@ -7,14 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection {
-  background-color: #ffde87;
-  color: #a33f3a;
-}
 
-::-webkit-selection {
-  background-color: #ffde87;
-  color: #a33f3a;
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #ffde87;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1fb1;
+  border-radius: 10px;
+  border: 3px solid #181818;
 }
 
 html {
@@ -23,11 +28,5 @@ html {
 }
 
 * {
-  direction: rtl;
-  text-align: right;
-  /* color: #1f1f1fb1; */
-  /* color: #ffffff94 ; */
-  /* color: #a33f3a74 ; */
-  /* color: #ffdd87b8 */
-  /* color: #d0865827 */
+  scroll-behavior: smooth;
 }

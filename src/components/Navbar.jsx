@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -14,10 +14,12 @@ import { Facebook, WhatsApp } from "@mui/icons-material";
 import Btn from "designs/Button";
 import { colors } from "libs/themes.js";
 import ImgInstagram from "assets/images/instagram.ico";
-import { centerStyles } from "utils/GeneralStyles";
 
 function NavBar() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const navbarRef = useRef(null);
+
   // Detect screen size
   useEffect(() => {
     const handleResize = () => {
@@ -30,12 +32,37 @@ function NavBar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Close Navbar on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleLinkClick = () => {
+    setIsExpanded(false);
+  };
+
   return (
     <NavbarContainer>
-      <Navbar expand="md" className="navbar">
+      <Navbar
+        expand="md"
+        className="navbar"
+        expanded={isExpanded}
+        ref={navbarRef}
+      >
         <Container fluid>
           {/* //! List icon */}
-          <Navbar.Toggle aria-controls="navbarScroll" id="list">
+          <Navbar.Toggle
+            aria-controls="navbarScroll"
+            id="list"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
             <MenuIcon className="list-icon" />
           </Navbar.Toggle>
 
@@ -45,7 +72,7 @@ function NavBar() {
           </Navbar.Brand>
 
           {/* //! Links */}
-          <Navbar.Collapse id="navbarScroll">
+        <Navbar.Collapse id="navbarScroll" onClick={handleLinkClick} >
             <Nav
               className={`mx-auto ${isMobile ? "" : "w-auto"}`}
               style={{
@@ -60,6 +87,7 @@ function NavBar() {
                 href="#action1"
                 className="link d-flex justify-content-between align-items-center"
                 style={{ marginTop: isMobile && "20px" }}
+                onClick={handleLinkClick}
               >
                 <span>الرئيسية</span>
                 {isMobile && <HomeIcon />}
@@ -67,6 +95,7 @@ function NavBar() {
               <Nav.Link
                 href="#action2"
                 className="link d-flex justify-content-between align-items-center"
+                onClick={handleLinkClick}
               >
                 <span>من نحن</span>
                 {isMobile && <InfoIcon />}
@@ -74,6 +103,7 @@ function NavBar() {
               <Nav.Link
                 href="#action3"
                 className="link d-flex justify-content-between align-items-center"
+                onClick={handleLinkClick}
               >
                 <span>تواصل معنا</span>
                 {isMobile && <EmailIcon />}
@@ -81,6 +111,7 @@ function NavBar() {
               <Nav.Link
                 href="#action4"
                 className="link d-flex justify-content-between align-items-center"
+                onClick={handleLinkClick}
               >
                 <span>البعض من ابطالنا</span>
                 {isMobile && <SportsMartialArtsIcon />}
@@ -89,14 +120,17 @@ function NavBar() {
             {!isMobile && (
               <Btn>
                 <WhatsApp
-                  style={{ color: colors.whatsApp, fontSize: "1.5rem", marginRight: '0' }}
+                  style={{
+                    color: colors.whatsApp,
+                    fontSize: "1.5rem",
+                    marginRight: "0",
+                  }}
                 />
               </Btn>
             )}
             <div className="social-buttons">
               {isMobile && (
                 <>
-                  {" "}
                   <Button>
                     <WhatsApp
                       style={{ color: colors.whatsApp, fontSize: "2rem" }}

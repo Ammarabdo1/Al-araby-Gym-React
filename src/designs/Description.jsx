@@ -5,9 +5,7 @@ import "aos/dist/aos.css";
 import { InitialAos } from "utils/initialAos";
 
 const Description = ({ children }) => {
-  useEffect(() => {
-    InitialAos(Aos);
-  }, []);
+  useEffect(() => InitialAos(Aos), []);
 
   return (
     <Des data-aos='fade-left' variant="h6" card={true}>

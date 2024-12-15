@@ -6,5 +6,6 @@ export const title = {
     Projects: 'ابطال العربي',
     Achieve: 'إنجازات العربي',
     AchieveCard: ['بطولات العربي', 'مركز أول', 'رجالة العربي'],
-    Family: 'عائلة العربي'
+    Family: 'عائلة العربي',
+    ContactUs: 'إزاي أقدر أساعدك يا بطل',
 }

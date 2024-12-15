@@ -16,10 +16,7 @@ const About = () => {
   const isMobile = useMediaQuery(`(max-width: ${media.mobile})`);
   const [showMoreText, setShowMoreText] = useState(false);
 
-  useEffect(() => {
-    InitialAos(Aos);
-  }, []);
-
+  useEffect(() => InitialAos(Aos), []);
   return (
     <AboutContainer container>
       <Text lg={6} md={12} xs={12}>
@@ -43,7 +40,7 @@ const About = () => {
             onClick={() => {
               setShowMoreText(false);
               window.scrollBy({
-                top: -1000,
+                top: -1200,
                 behavior: 'smooth'
               });
             }}

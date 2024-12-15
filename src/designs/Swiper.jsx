@@ -18,9 +18,7 @@ import { InitialAos } from "utils/initialAos";
 
 export default function SwiperJs({noOfImgs, ImgSrc}) {
   const AlarabyHeros = Array(noOfImgs).fill(null);
-  useEffect(() => {
-    InitialAos(Aos)
-  }, []);
+  useEffect(() => InitialAos(Aos), []);
 
   const progressCircle = useRef(null);
   const progressContent = useRef(null);

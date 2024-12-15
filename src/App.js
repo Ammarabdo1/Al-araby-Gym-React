@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import NavBar from "components/Navbar";
 import Home from "pages/Home.js";
 import StartUpLoader from "pages/StartUp";
+import ContactUs from "components/ContactUs/ContactUs";
+import styled from '@emotion/styled'
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -17,11 +19,18 @@ function App() {
   }
 
   return (
-    <div style={{ position: "relative" }}>
+    <Container>
       <NavBar />
       <Home />
-    </div>
+      <ContactUs />
+    </Container>
   );
 }
+
+const Container = styled.div`
+  position: relative;
+  direction: rtl;
+  text-align: right;
+`
 
 export default App;

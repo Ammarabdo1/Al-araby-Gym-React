@@ -6,9 +6,9 @@ import fireImg from "assets/images/Fire.png";
 
 export const ButtonContainer = styled(Button)`
   color: ${colors.btn};
-  transition: all .3s ease;
   border-radius: 10px;
-  box-shadow: ${colors.shadow};
+  box-shadow: ${props => ( props.shadow === 'calm' ? `1px 3px 5px 5px ${colors.after_hover}` : colors.shadow)};
+
   font-weight: 900;
   font-size: 1.5rem;
   //! Flash effect
@@ -22,8 +22,8 @@ export const ButtonContainer = styled(Button)`
   -webkit-text-fill-color: transparent; */
   animation: ${({ dir }) => flashRightToLeft(dir)} 7s linear infinite;
 
-  &:hover {
-  background: ${colors.btn_hover_bg};
+  &:active {
+    background: ${colors.btn_hover_bg};
     color: ${colors.title};
   }
 

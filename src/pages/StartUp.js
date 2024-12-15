@@ -10,7 +10,7 @@ import { useRef, useEffect } from "react";
 import { styled, keyframes } from "@stitches/react";
 import { useTrail, animated } from "@react-spring/web";
 
-import AOS from "aos";
+import Aos from "aos";
 import "aos/dist/aos.css";
 import { colors, media } from "libs/themes";
 import bgImgMobile from "assets/images/header/2.jpg";
@@ -110,7 +110,7 @@ const BackBox = styled(animated.div, {
   fontSize: "4vw",
   transition: "background-position 1s ease",
   background: `url(${fireImg})`,
-  animation: `${moveGradient} 2s 3s ease infinite`, // Apply the keyframes animation
+  animation: `${moveGradient} 3s 2s ease infinite`, // Apply the keyframes animation
   backdropFilter: "blur(15px)",
   "& .alaraby_img": {
     fontSize: "5vw",
@@ -151,9 +151,7 @@ const items = [
 ];
 
 export default function StartUpLoader(props) {
-  useEffect(() => {
-    InitialAos(AOS);
-  }, []);
+  useEffect(() => InitialAos(Aos), []);
 
   const [trail, api] = useTrail(items.length, () => ({
     rotateX: 0,

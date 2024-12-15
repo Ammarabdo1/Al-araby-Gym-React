@@ -15,9 +15,7 @@ const Title = ({ children }) => {
 };
 
 const HeaderTitle = ({ children }) => {
-  useEffect(() => {
-    InitialAos(Aos)
-  }, []);
+  useEffect(() => InitialAos(Aos), []);
   return <HeaderTitleText data-aos='zoom-in' variant="h1">{children}</HeaderTitleText>;
 };
 

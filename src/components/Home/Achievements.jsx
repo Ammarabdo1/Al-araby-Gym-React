@@ -17,9 +17,7 @@ import { title } from "utils/titles-text";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
 const Achievements = () => {
-  useEffect(() => {
-    InitialAos(Aos);
-  }, []);
+  useEffect(() => InitialAos(Aos), []);
 
   return (
     <AchieveContainer>

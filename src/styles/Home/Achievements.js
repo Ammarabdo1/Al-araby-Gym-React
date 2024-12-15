@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { Grid, Card, Typography, Box } from "@mui/material";
-import { colors } from "libs/themes";
+import { colors, media } from "libs/themes";
 import { AfterLayout } from "utils/GeneralStyles";
 import FireBg from "assets/images/Fire.png";
-import FireImg from 'assets/images/Fire.png'
+import FireImg from "assets/images/Fire.png";
 
 export const AchieveContainer = styled.div`
   overflow: hidden;
@@ -14,17 +14,25 @@ export const AchieveSection = styled(Box)`
   text-align: "center";
   background: ${colors.bg};
   padding-bottom: 14rem;
+  padding-top: 8rem;
   position: relative;
   z-index: 1;
   &::before {
     ${AfterLayout()}
     background-image: url(${FireBg});
-    opacity: 0.3;
+    @media (max-width: ${media.mobile}) {
+      background-size: contain;
+    }
+    opacity: 0.5;
   }
   h1 {
     svg {
       margin-right: 1rem;
     }
+  }
+
+  @media (max-width: ${media.mobile}) {
+    padding-bottom: 10rem;
   }
 `;
 

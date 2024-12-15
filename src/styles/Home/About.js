@@ -13,7 +13,10 @@ export const AboutContainer = styled(Grid)`
   &::before {
     ${AfterLayout()}
     background-image: url(${FireBg});
-    opacity: 0.3;
+    @media (max-width: ${media.mobile}) {
+      background-size: contain;
+    }
+    opacity: 0.5;
   }
 
   @media (max-width: ${media.mobile}) {
