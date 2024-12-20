@@ -8,4 +8,10 @@ export const title = {
     AchieveCard: ['بطولات العربي', 'مركز أول', 'رجالة العربي'],
     Family: 'عائلة العربي',
     ContactUs: 'إزاي أقدر أساعدك يا بطل',
+    Footer: {
+        About_Title: 'صالح العربي',
+        links_Title: 'العربي جيم',
+        media_Title: 'ميديا',
+        contact_Title: 'تواصل معي'
+    }
 }

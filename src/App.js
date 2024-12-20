@@ -4,6 +4,7 @@ import Home from "pages/Home.js";
 import StartUpLoader from "pages/StartUp";
 import ContactUs from "components/ContactUs/ContactUs";
 import styled from '@emotion/styled'
+import Footer from "components/Footer/Footer.jsx";
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -23,6 +24,7 @@ function App() {
       <NavBar />
       <Home />
       <ContactUs />
+      <Footer/>
     </Container>
   );
 }

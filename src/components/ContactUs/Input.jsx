@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextField } from "@mui/material";
 import ErrorMessage from "./ErrorMessage";
 import styled from "@emotion/styled";
 import { colors, media } from "libs/themes";
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import { InitialAos } from "utils/initialAos";
 
 const Input = (props) => {
+
+  useEffect(() => InitialAos(Aos), [])
+
   return (
     <Container>
       {props.error && props.touched && (
@@ -14,6 +20,7 @@ const Input = (props) => {
       )}
 
       <InputField
+        data-aos='zoom-in'
         id={props.id}
         label={props.id}
         name={props.id}
@@ -33,10 +40,7 @@ const Container = styled.div`
 `;
 
 const InputField = styled(TextField)`
-  /* width: 100%; */
   margin-bottom: 30px;
-
-
 
   & .MuiInputLabel-root {
     color: ${colors.des}; // Default label color: ;

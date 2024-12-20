@@ -18,8 +18,8 @@ export const colors = {
     shadow: '0 0px 15px 1px #ffdd87b8', // transparent
     shadow_color: '#ffdd87b8',
     
-    whatsApp: '#25d366',
-    facebook: '#1877f2'
+    whatsApp: '#5fffa2',
+    facebook: '#4fa4ff'
 }
 
 export const themes = {

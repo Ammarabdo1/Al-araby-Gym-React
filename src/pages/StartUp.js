@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
 
-import { ScaleLoader, PropagateLoader } from "react-spinners";
+import { ScaleLoader } from "react-spinners";
 
 import { useRef, useEffect } from "react";
 import { styled, keyframes } from "@stitches/react";
@@ -16,11 +16,87 @@ import { colors, media } from "libs/themes";
 import bgImgMobile from "assets/images/header/2.jpg";
 import bgImg from "assets/images/Al3rapyImages/BgloaderMain2.jpg";
 import fireImg from "assets/images/Fire.png";
-import CardBg from "assets/images/StartUp.jpeg";
-import CardBg2 from "assets/images/StartUp2.jpg";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import { InitialAos } from "utils/initialAos";
+
+export default function StartUpLoader(props) {
+  useEffect(() => InitialAos(Aos), []);
+
+  const [trail, api] = useTrail(items.length, () => ({
+    rotateX: 0,
+  }));
+
+  const isFlipped = useRef(false);
+
+  useEffect(() => {
+    api.start({
+      rotateX: 180,
+    });
+    isFlipped.current = true;
+  }, []);
+
+  const isMobile = useMediaQuery(`(max-width: ${media.tablet})`);
+
+  return (
+    <StartUpContainer>
+      <AppContainer
+        style={{ direction: "ltr !important" }}
+        data-aos="zoom-out"
+        data-aos-duration="2000"
+      >
+        <Container>
+          {trail.map(({ rotateX }, i) => (
+            <Box key={i}>
+              <FrontBox
+                key={items[i]}
+                style={{
+                  transform: rotateX.to(
+                    (val) => `perspective(600px) rotateX(${val}deg)`
+                  ),
+                  transformStyle: "preserve-3d",
+                }}
+              ></FrontBox>
+              <BackBox
+                style={{
+                  // background: gradients[gradientIndex],
+                  transform: rotateX.to(
+                    (val) => `perspective(600px) rotateX(${180 - val}deg)`
+                  ),
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                {items[i]}
+              </BackBox>
+            </Box>
+          ))}
+        </Container>
+        {/* <PropagateLoader
+          className="loader"
+          color={colors.title}
+          // radius={100}
+          size={isMobile ? 20 : 30}
+        /> */}
+
+        <ScaleLoader
+          className="loader"
+          color={colors.title}
+          height={isMobile ? 60 : 100}
+          radius={100}
+          speedMultiplier={1}
+          width={isMobile ? 6 : 10}
+        />
+
+        <CloseLoader>
+          <Button onClick={() => props.setLoader(false)}>
+            <CloseIcon style={{ fontSize: "2rem", color: "#EECE95" }} />
+          </Button>
+        </CloseLoader>
+      </AppContainer>
+    </StartUpContainer>
+  );
+}
+
 
 const AppContainer = styled("div", {
   position: "relative",
@@ -149,80 +225,3 @@ const items = [
     />
   </svg>,
 ];
-
-export default function StartUpLoader(props) {
-  useEffect(() => InitialAos(Aos), []);
-
-  const [trail, api] = useTrail(items.length, () => ({
-    rotateX: 0,
-  }));
-
-  const isFlipped = useRef(false);
-
-  useEffect(() => {
-    api.start({
-      rotateX: 180,
-    });
-    isFlipped.current = true;
-  }, []);
-
-  const isMobile = useMediaQuery(`(max-width: ${media.tablet})`);
-
-  return (
-    <StartUpContainer>
-      <AppContainer
-        style={{ direction: "ltr !important" }}
-        data-aos="zoom-out"
-        data-aos-duration="2000"
-      >
-        <Container>
-          {trail.map(({ rotateX }, i) => (
-            <Box key={i}>
-              <FrontBox
-                key={items[i]}
-                style={{
-                  transform: rotateX.to(
-                    (val) => `perspective(600px) rotateX(${val}deg)`
-                  ),
-                  transformStyle: "preserve-3d",
-                }}
-              ></FrontBox>
-              <BackBox
-                style={{
-                  // background: gradients[gradientIndex],
-                  transform: rotateX.to(
-                    (val) => `perspective(600px) rotateX(${180 - val}deg)`
-                  ),
-                  transformStyle: "preserve-3d",
-                }}
-              >
-                {items[i]}
-              </BackBox>
-            </Box>
-          ))}
-        </Container>
-        {/* <PropagateLoader
-          className="loader"
-          color={colors.title}
-          // radius={100}
-          size={isMobile ? 20 : 30}
-        /> */}
-
-        <ScaleLoader
-          className="loader"
-          color={colors.title}
-          height={isMobile ? 60 : 100}
-          radius={100}
-          speedMultiplier={1}
-          width={isMobile ? 6 : 10}
-        />
-
-        <CloseLoader>
-          <Button onClick={() => props.setLoader(false)}>
-            <CloseIcon style={{ fontSize: "2rem", color: "#EECE95" }} />
-          </Button>
-        </CloseLoader>
-      </AppContainer>
-    </StartUpContainer>
-  );
-}

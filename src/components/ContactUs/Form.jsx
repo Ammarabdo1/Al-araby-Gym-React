@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import styled from "@emotion/styled";
 import Input from "./Input";
 import { colors, media } from "libs/themes";
 import { Btn } from "designs";
-import SendIcon from '@mui/icons-material/Send';
+import SendIcon from "@mui/icons-material/Send";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { InitialAos } from "utils/initialAos";
 
 const Form = () => {
+  useEffect(() => InitialAos(Aos), []);
+
   const UserData = ["name", "email", "message"];
 
   const formik = useFormik({
@@ -33,9 +38,9 @@ const Form = () => {
   });
   return (
     <SendEmailForm>
-      <Container>
+      <Container data-aos='zoom-in'>
         {UserData.map((data, index) => (
-          <Input 
+          <Input
             key={index}
             id={data}
             value={formik.values[data]}
@@ -45,7 +50,9 @@ const Form = () => {
             error={formik.errors[data]}
           />
         ))}
-        <Btn shadow='calm' >ارسال <SendIcon/></Btn>
+        <Btn shadow="calm">
+          ارسال <SendIcon />
+        </Btn>
       </Container>
     </SendEmailForm>
   );
