@@ -11,8 +11,8 @@ export const ButtonContainer = styled(Button)`
 
   font-weight: 900;
   font-size: 1.5rem;
+  
   //! Flash effect
-
   background-image: ${({ dir }) =>
     dir === "left"
       ? `url(${fireImg})`
@@ -20,7 +20,7 @@ export const ButtonContainer = styled(Button)`
   background-size: 200%;
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
-  animation: ${({ dir }) => flashRightToLeft(dir)} 7s linear infinite;
+  animation: ${({ dir }) => flashRightToLeft(dir)} 6s linear infinite;
 
   &:active {
     background: ${colors.btn_hover_bg};

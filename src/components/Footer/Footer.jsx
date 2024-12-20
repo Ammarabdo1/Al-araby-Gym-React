@@ -30,6 +30,7 @@ const FooterSection = styled.div`
   background: ${colors.bg};
   position: relative;
   z-index: 2;
+  overflow-x: hidden;
   &::after {
     ${AfterLayout()};
     background-image: url(${fireImg});
@@ -39,9 +40,9 @@ const FooterSection = styled.div`
 `;
 
 const Container = styled(Grid)`
-  padding: 0px 100px 100px 100px;
+  padding: 100px;
   @media (max-width: ${media.mobile}) {
-    padding: 0 30px 50px 30px;
+    padding: 70px 30px;
   }
 `;
 

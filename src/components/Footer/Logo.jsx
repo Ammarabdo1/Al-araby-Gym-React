@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import { Grid } from "@mui/material";
 import FooterLogo from "assets/images/imgFooter.png";
-import { colors, media } from "libs/themes";
+import { media } from "libs/themes";
+import { InitialAos } from "utils/initialAos";
+import Aos from "aos";
 
 const Logo = () => {
+  useEffect(() => {
+    return InitialAos(Aos)
+  }, [])
   return (
     <Container item lg={12} md={12} xs={12}>
-      <img src={FooterLogo} />
+      <img data-aos='fade-down' src={FooterLogo} />
     </Container>
   );
 };

@@ -6,7 +6,6 @@ import Projects from 'components/Home/Projects'
 import Achievements from 'components/Home/Achievements'
 import Family from 'components/Home/Family'
 import styled from '@emotion/styled'
-import { colors } from 'libs/themes'
 
 const Home = () => {
   return (

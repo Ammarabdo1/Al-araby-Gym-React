@@ -18,12 +18,14 @@ const Container = styled.div`
   align-items: center;
   padding: 22px 10px;
   background: ${colors.bg_hover};
-  
 `;
 
 const Text = styled(Typography)`
   color: ${colors.des};
   text-align: center;
-`
+  @media (max-width: ${media.mobile}) {
+    font-size: 4.4vw;
+  }
+`;
 
 export default Copyright;

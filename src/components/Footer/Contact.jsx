@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import { Grid, Typography } from "@mui/material";
 import { Title } from "designs";
 import { title } from "utils/titles-text";
 import { desc } from "utils/description-text";
 import { colors, media } from "libs/themes";
+import { InitialAos } from "utils/initialAos";
+import Aos from "aos";
 
 const Contact = () => {
+  useEffect(() => {
+      return InitialAos(Aos);
+    }, []);
   return (
     <Container item lg={3} md={3} xs={12}>
       <Title>{title.Footer.contact_Title}</Title>
-      <Typography variant="h6">{desc.Footer.email}</Typography>
+      <Typography variant="h6" data-aos='fade' >{desc.Footer.email}</Typography>
     </Container>
   );
 };
@@ -37,9 +42,10 @@ const Container = styled(Grid)`
     h6 {
       font-size: 6vw;
       text-align: center;
-      border-right: 5px solid;
-      border-left: 5px solid;
+      border-right: 8px solid ${colors.after_hover};
+      border-left: 8px solid ${colors.after_hover};
       border-radius: 25px;
+      box-shadow: 0 0px 30px 1px ${colors.after_hover};
       padding: 0 5px;
     }
   }

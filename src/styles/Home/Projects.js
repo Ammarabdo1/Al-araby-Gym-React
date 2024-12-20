@@ -6,6 +6,7 @@ import FireBg from "assets/images/Fire.png";
 
 export const ProjectsContainer = styled(Grid)`
   padding-bottom: 14rem;
+  padding-top: 1rem;
   background: ${colors.bg};
   position: relative;
   z-index: 1;

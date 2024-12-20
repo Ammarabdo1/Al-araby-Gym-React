@@ -27,7 +27,7 @@ const HeaderSwiper = () => {
         }}
         loop={true} // Enable infinite loop
         autoplay={{
-          delay: 7000, // Change slide every 3 seconds
+          delay: 6000, // Change slide every 6 seconds
           disableOnInteraction: false,
         }}
       >

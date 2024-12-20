@@ -5,6 +5,7 @@ import StartUpLoader from "pages/StartUp";
 import ContactUs from "components/ContactUs/ContactUs";
 import styled from '@emotion/styled'
 import Footer from "components/Footer/Footer.jsx";
+import FloatingButton from "components/FloatingButton";
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -25,6 +26,7 @@ function App() {
       <Home />
       <ContactUs />
       <Footer/>
+      <FloatingButton />
     </Container>
   );
 }

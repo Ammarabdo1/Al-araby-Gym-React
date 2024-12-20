@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import { Grid, Typography } from "@mui/material";
 import { Title } from "designs";
 import { title } from "utils/titles-text";
 import { desc } from "utils/description-text";
 import { colors, media } from "libs/themes";
+import { InitialAos } from "utils/initialAos";
+import Aos from "aos";
 
 const Links = () => {
+  useEffect(() => {
+      return InitialAos(Aos)
+    }, [])
   return (
     <Container item lg={3} md={3} xs={12}>
       <Title>{title.Footer.links_Title}</Title>
 
       <LinksContainer>
-        <Typography variant="h6">{desc.Footer.links[0]}</Typography>
-        <Typography variant="h6">{desc.Footer.links[1]}</Typography>
-        <Typography variant="h6">{desc.Footer.links[2]}</Typography>
-        <Typography variant="h6">{desc.Footer.links[3]}</Typography>
+        <Typography variant="h6" data-aos='fade-left'>{desc.Footer.links[0]}</Typography>
+        <Typography variant="h6" data-aos='fade-left'>{desc.Footer.links[1]}</Typography>
+        <Typography variant="h6" data-aos='fade-left'>{desc.Footer.links[2]}</Typography>
+        <Typography variant="h6" data-aos='fade-left'>{desc.Footer.links[3]}</Typography>
       </LinksContainer>
     </Container>
   );

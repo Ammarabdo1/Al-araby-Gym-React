@@ -9,6 +9,7 @@ export const Text = styled(Typography)`
   font-weight: 500;
   color: ${colors.title};
   text-align: center;
+  margin-bottom: 2rem;
 
   svg {
     font-size: 3vw;

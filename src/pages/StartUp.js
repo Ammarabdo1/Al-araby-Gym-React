@@ -71,12 +71,6 @@ export default function StartUpLoader(props) {
             </Box>
           ))}
         </Container>
-        {/* <PropagateLoader
-          className="loader"
-          color={colors.title}
-          // radius={100}
-          size={isMobile ? 20 : 30}
-        /> */}
 
         <ScaleLoader
           className="loader"
