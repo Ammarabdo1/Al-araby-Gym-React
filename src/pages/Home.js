@@ -6,6 +6,7 @@ import Projects from 'components/Home/Projects'
 import Achievements from 'components/Home/Achievements'
 import Family from 'components/Home/Family'
 import styled from '@emotion/styled'
+import Reviews from 'components/Home/Reviews'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Projects/>
       <ServicesSection/>
       <Family/>
+      <Reviews />
     </Container>
   )
 }

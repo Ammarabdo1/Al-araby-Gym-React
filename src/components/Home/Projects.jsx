@@ -45,7 +45,7 @@ const Projects = () => {
       </TextSide>
 
       <ImagesSide lg={6} md={12} xs={12}>
-        <SwiperJs noOfImgs={27} ImgSrc={"/images/TransitionImages/T"} />
+        <SwiperJs noOfImgs={29} ImgSrc={"/images/TransitionImages/T"} />
       </ImagesSide>
     </ProjectsContainer>
   );
