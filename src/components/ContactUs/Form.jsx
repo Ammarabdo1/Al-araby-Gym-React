@@ -11,7 +11,7 @@ import "aos/dist/aos.css";
 import { InitialAos } from "utils/initialAos";
 
 const Form = () => {
-  useEffect(() => InitialAos(Aos), []);
+  InitialAos(Aos)
 
   const UserData = ["name", "email", "message"];
 

@@ -9,7 +9,7 @@ import { InitialAos } from "utils/initialAos";
 
 const Input = (props) => {
 
-  useEffect(() => InitialAos(Aos), [])
+  InitialAos(Aos)
 
   return (
     <Container>

@@ -24,9 +24,7 @@ import { colors } from "libs/themes";
 
 const FloatingButton = () => {
   const phoneNumber = "+201287194379";
-  useEffect(() => {
-    return InitialAos(Aos);
-  }, []);
+  InitialAos(Aos)
   return (
     <>
       <Box

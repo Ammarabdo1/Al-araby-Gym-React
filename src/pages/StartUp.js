@@ -21,7 +21,7 @@ import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import { InitialAos } from "utils/initialAos";
 
 export default function StartUpLoader(props) {
-  useEffect(() => InitialAos(Aos), []);
+InitialAos(Aos)
 
   const [trail, api] = useTrail(items.length, () => ({
     rotateX: 0,

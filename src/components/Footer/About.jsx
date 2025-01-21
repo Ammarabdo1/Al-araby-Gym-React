@@ -9,9 +9,7 @@ import Aos from "aos";
 
 
 const About = () => {
-useEffect(() => {
-    return InitialAos(Aos)
-  }, [])
+InitialAos(Aos)
   return (
     <Container item lg={3} md={3} xs={12}>
       <TextContainer>

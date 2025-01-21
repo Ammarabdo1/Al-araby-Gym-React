@@ -14,11 +14,13 @@ import { Facebook, WhatsApp } from "@mui/icons-material";
 import Btn from "designs/Button";
 import { colors } from "libs/themes.js";
 import ImgInstagram from "assets/images/instagram.ico";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavBar() {
   const [isMobile, setIsMobile] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const navbarRef = useRef(null);
+  const navigate = useNavigate();
 
   // Detect screen size
   useEffect(() => {
@@ -83,39 +85,39 @@ function NavBar() {
               }}
               navbarScroll
             >
-              <Nav.Link
-                href="#action1"
-                className="link d-flex justify-content-between align-items-center"
+              <Link
+                to='/'
+                className="link d-flex text-decoration-none justify-content-between align-items-center"
                 style={{ marginTop: isMobile && "20px" }}
                 onClick={handleLinkClick}
               >
                 <span>الرئيسية</span>
                 {isMobile && <HomeIcon />}
-              </Nav.Link>
-              <Nav.Link
-                href="#action2"
-                className="link d-flex justify-content-between align-items-center"
+              </Link>
+              <Link
+                to='/about'
+                className="link d-flex text-decoration-none justify-content-between align-items-center"
                 onClick={handleLinkClick}
               >
                 <span>من نحن</span>
                 {isMobile && <InfoIcon />}
-              </Nav.Link>
+              </Link>
               <Nav.Link
                 href="#action3"
-                className="link d-flex justify-content-between align-items-center"
+                className="link d-flex text-decoration-none justify-content-between align-items-center"
                 onClick={handleLinkClick}
               >
                 <span>تواصل معنا</span>
                 {isMobile && <EmailIcon />}
               </Nav.Link>
-              <Nav.Link
-                href="#action4"
-                className="link d-flex justify-content-between align-items-center"
+              <Link
+                to='/projects'
+                className="link d-flex text-decoration-none justify-content-between align-items-center"
                 onClick={handleLinkClick}
               >
                 <span>البعض من ابطالنا</span>
                 {isMobile && <SportsMartialArtsIcon />}
-              </Nav.Link>
+              </Link>
             </Nav>
             {!isMobile && (
               <Btn>

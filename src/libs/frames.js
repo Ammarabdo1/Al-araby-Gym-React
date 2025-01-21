@@ -1,4 +1,5 @@
 import { keyframes } from "@emotion/react";
+import { colors } from "./themes";
 
 export const flashRightToLeft = (position) => keyframes`
   0% {
@@ -21,12 +22,53 @@ export const moveBackGround = (isMobile) => keyframes`
   }
 `;
 
+export const flash = (isMobile) => keyframes`
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
+
 export const RotateBackGround = keyframes`
   0% {
     transform: rotate(0deg); /* Start position */
   }
   100% {
     transform: rotate(1440deg); /* End position */
+  }
+`;
+
+export const Scale = keyframes`
+  0% {
+    backdrop-filter: blur(8px);
+    transform: scale(1);
+  }
+  30% {
+    
+    backdrop-filter: blur(8px);
+    transform: scale(1);
+  }
+  50% {
+    
+    backdrop-filter: blur(0px);
+    transform: scale(.7);
+  }
+  80% {
+    
+    backdrop-filter: blur(0px);
+    transform: scale(.7);
+  }
+  100% {
+    backdrop-filter: blur(8px);
+    transform: scale(1);
+
   }
 `;
 

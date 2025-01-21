@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
-
+import img0 from 'assets/images/Reviews/R20.jpeg'
 import img1 from "assets/images/Reviews/R16.jpg";
 import img2 from "assets/images/Reviews/R14.jpg";
-import img3 from "assets/images/Reviews/R7.jpg";
+import img3 from "assets/images/Reviews/R7.jpeg";
 import { colors, media } from "libs/themes";
 import { AfterLayout } from "utils/GeneralStyles";
 import FireBg from "assets/images/Fire.png";
@@ -15,13 +15,17 @@ import avatarImg from "assets/images/Reviews/Saleh.JPG";
 import avatarImg2 from "assets/images/Reviews/Saleh2.JPG";
 import avatarImg3 from "assets/images/Reviews/Saleh3.JPG";
 import { Button } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { InitialAos } from "utils/initialAos";
+import Aos from "aos";
 
 // Reviews Component
 const Reviews = () => {
+  const isMobile = useMediaQuery(`(max-width: ${media.mobile})`)
   const reviews = [
     {
       name: "John Doe",
-      src: img1,
+      src: isMobile ? img0 : img1,
       rating: 6,
       avatar: avatarImg,
     },
@@ -44,7 +48,7 @@ const Reviews = () => {
       index < rating ? <StarIcon key={index} /> : <StarBorderIcon key={index} />
     );
   };
-
+  InitialAos(Aos)
   return (
     <ReviewsSection>
       <Title>
@@ -52,7 +56,7 @@ const Reviews = () => {
       </Title>
       <ReviewsContainer>
         {reviews.map((review, index) => (
-          <ReviewCard key={index}>
+          <ReviewCard key={index} data-aos='zoom-in'>
             <ReviewerDetails>
               <img src={review.avatar} alt={review.name} />
               <ReviewerName>- ك _ صالح العربي</ReviewerName>
@@ -72,7 +76,7 @@ const Reviews = () => {
 
 const ReviewsSection = styled.section`
   background: ${colors.bg};
-  padding: 60px 20px;
+  padding: 0px 20px 100px;
   
   position: relative;
   z-index: 1;
@@ -92,7 +96,6 @@ const ReviewsContainer = styled.div`
   justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
-
 `;
 
 const ReviewCard = styled.div`

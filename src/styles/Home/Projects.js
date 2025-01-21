@@ -65,10 +65,10 @@ export const StepsContainer = styled.div`
 `;
 
 export const ContactButtonContainer = styled.div`
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
   width: 100%;
   button {
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 
   @media (max-width: ${media.tablet}) {

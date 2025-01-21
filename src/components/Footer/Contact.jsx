@@ -9,9 +9,7 @@ import { InitialAos } from "utils/initialAos";
 import Aos from "aos";
 
 const Contact = () => {
-  useEffect(() => {
-      return InitialAos(Aos);
-    }, []);
+  InitialAos(Aos)
   return (
     <Container item lg={3} md={3} xs={12}>
       <Title>{title.Footer.contact_Title}</Title>

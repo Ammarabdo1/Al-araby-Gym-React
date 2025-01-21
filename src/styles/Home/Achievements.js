@@ -47,10 +47,10 @@ export const AchieveCard = styled(Card)`
   background: transparent;
   box-shadow: ${colors.shadow};
   padding: 1rem;
-  text-align: center;
+  text-align: start;
   svg {
     color: ${colors.subTitle};
-  }
+}
 `;
 
 export const KnowMoreButton = styled.div`

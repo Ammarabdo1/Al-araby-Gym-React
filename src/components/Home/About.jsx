@@ -12,13 +12,13 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { InitialAos } from "utils/initialAos";
 
-const About = () => {
+const About = ({className}) => {
   const isMobile = useMediaQuery(`(max-width: ${media.mobile})`);
   const [showMoreText, setShowMoreText] = useState(false);
 
-  useEffect(() => InitialAos(Aos), []);
+  InitialAos(Aos)
   return (
-    <AboutContainer container>
+    <AboutContainer container className={className}>
       <Text lg={6} md={12} xs={12}>
         <Title>
           {title.About} <AutoStoriesIcon />

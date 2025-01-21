@@ -7,20 +7,27 @@ import { desc } from "utils/description-text";
 import { colors, media } from "libs/themes";
 import { InitialAos } from "utils/initialAos";
 import Aos from "aos";
+import { Link } from "react-router-dom";
 
 const Links = () => {
-  useEffect(() => {
-      return InitialAos(Aos)
-    }, [])
+  InitialAos(Aos);
+  const handOnClick = () => {
+    window.scrollTo(0, 0);
+  };
+
+  const pages = ["/", "/about", "/contact", "projects"];
   return (
     <Container item lg={3} md={3} xs={12}>
       <Title>{title.Footer.links_Title}</Title>
 
       <LinksContainer>
-        <Typography variant="h6" data-aos='fade-left'>{desc.Footer.links[0]}</Typography>
-        <Typography variant="h6" data-aos='fade-left'>{desc.Footer.links[1]}</Typography>
-        <Typography variant="h6" data-aos='fade-left'>{desc.Footer.links[2]}</Typography>
-        <Typography variant="h6" data-aos='fade-left'>{desc.Footer.links[3]}</Typography>
+        {pages.map((page, index) => (
+          <Link to={page} onClick={handOnClick}>
+            <Typography variant="h6" data-aos="fade-left">
+              {desc.Footer.links[index]}
+            </Typography>
+          </Link>
+        ))}
       </LinksContainer>
     </Container>
   );
@@ -46,6 +53,9 @@ const Container = styled(Grid)`
 `;
 
 const LinksContainer = styled.div`
+  a {
+    text-decoration: none;
+  }
   h6 {
     color: ${colors.subTitle};
     &:hover {
@@ -55,7 +65,7 @@ const LinksContainer = styled.div`
     margin-bottom: 10px;
   }
   @media (max-width: ${media.mobile}) {
-     width: 90%;
+    width: 90%;
   }
 `;
 

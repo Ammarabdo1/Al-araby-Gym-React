@@ -3,6 +3,7 @@ import Alert from "@mui/material/Alert";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { InitialAos } from "utils/initialAos";
 
 const darkTheme = createTheme({
   palette: {
@@ -15,21 +16,11 @@ const darkTheme = createTheme({
 });
 
 const ErrorMessage = ({ children }) => {
-  useEffect(() => {
-    Aos.init({
-      duration: 1000,
-      offset: 100,
-      once: true
-    });
-    return () => Aos.refresh();
-
-  });
+  InitialAos(Aos, {once: true})
   return (
     <ThemeProvider theme={darkTheme}>
       <div
         style={{ margin: "10px 0", width: "90%" }}
-        data-aos="fade-up"
-        data-aos-duration="1000"
       >
         <Alert
           severity="error"

@@ -1,25 +1,27 @@
 
 export const colors = {
-    title: '#ffde87', // Page
-    subTitle:'#a33f3a', // red
-    des: 'silver',
+    title: ' #ffde87', // Page
+    subTitle:' #a33f3a', // red
 
-    link: 'white',
-    link_hover: 'gray',
+    des: ' silver',
 
-    btn: '#a33f3a', // red
-    btn_bg: '#ffde87', // page
-    btn_hover_bg: '#1f1f1f', // black
+    link: ' white',
+    link_hover: ' gray',
 
-    bg: '#181818', // black2
+    btn: ' #a33f3a', // red
+    btn_bg: ' #ffde87', // page
+    btn_hover_bg: ' #1f1f1f', // black
 
-    bg_hover: '#1f1f1fb1', // black transparent
-    after_hover: '#d0865834', // red transparent
-    shadow: '0 0px 15px 1px #ffdd87b8', // transparent
-    shadow_color: '#ffdd87b8',
+    bg: `linear-gradient(90deg ,rgb(13, 13, 13), rgb(0, 0, 0))`, // black2
+
+    bg_hover: ' #1f1f1fb1', // black transparent
+    bg_hover2: 'rgba(31, 31, 31, 0.79)', // black transparent
+    after_hover: ' #d0865834', // red transparent
+    shadow: '1px 2px 4px 1px #ffdd87b8', // transparent
+    shadow_color: ' #ffdd87b8',
     
-    whatsApp: '#5fffa2',
-    facebook: '#4fa4ff'
+    whatsApp: ' #5fffa2',
+    facebook: ' #4fa4ff'
 }
 
 export const themes = {

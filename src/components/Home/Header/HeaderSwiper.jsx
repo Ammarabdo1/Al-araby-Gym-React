@@ -25,11 +25,7 @@ const HeaderSwiper = () => {
           modifier: 1, // Strength of the effect
           slideShadows: true, // Enable shadows on the slides
         }}
-        loop={true} // Enable infinite loop
-        autoplay={{
-          delay: 6000, // Change slide every 6 seconds
-          disableOnInteraction: false,
-        }}
+        loop={true}
       >
         {HeaderContent.map((content, index) => (
           <HeaderSlide key={index} BgImg={content.BgImg}>

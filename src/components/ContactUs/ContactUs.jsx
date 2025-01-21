@@ -5,33 +5,38 @@ import Form from "./Form";
 import { colors, media } from "libs/themes";
 import fireImg from "assets/images/Fire.png";
 import { AfterLayout } from "utils/GeneralStyles";
-import { moveBackGround } from "libs/frames";
+import { flash, moveBackGround } from "libs/frames";
 import GymBg from "assets/images/ContactUs.JPG";
 import GymBgMonitor from "assets/images/GymBg2.jpg";
 import { title } from "utils/titles-text";
 import { desc } from "utils/description-text";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
-import Aos from 'aos'
-import 'aos/dist/aos.css'
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { InitialAos } from "utils/initialAos";
 
 const ContactUs = () => {
-  useEffect(() => InitialAos(Aos), [])
+  InitialAos(Aos)
+
   return (
     <ContactSection>
-      <Container container>
+      <Container container data-aos="zoom-out">
         <TextSide lg={6} md={6} xs={12}>
           <TextContainer>
             <Box width={600} className="text">
-              <Typography variant="h6" data-aos="flip-right" >{title.ContactUs}</Typography>
-              <Typography variant="h3" data-aos="fade-left" >
+              <Typography variant="h6" data-aos="flip-right">
+                {title.ContactUs}
+              </Typography>
+              <Typography variant="h3" data-aos="fade-left">
                 {desc.ContactUs.content}
                 <span data-aos="zoom-in">
                   {desc.ContactUs.subContent}
                   <AutoGraphIcon className="icon" />
                 </span>
               </Typography>
-              <Typography variant="h5" data-aos="fade-left" >{desc.ContactUs.res}</Typography>
+              <Typography variant="h5" data-aos="fade-left">
+                {desc.ContactUs.res}
+              </Typography>
             </Box>
           </TextContainer>
         </TextSide>
@@ -45,56 +50,44 @@ const ContactUs = () => {
 };
 
 const ContactSection = styled.div`
+  position: relative;
   overflow: hidden;
+  background: ${colors.bg};
 `;
 
 const Container = styled(Grid)`
+  z-index: 2;
   background: url(${GymBgMonitor}) no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   padding: 150px 100px 200px 100px;
   position: relative;
-  z-index: 2;
-  &::after {
-    ${AfterLayout()}
-    background-image: url(${fireImg});
+
+  @media (min-width: ${media.mobile}) {
     background-attachment: fixed;
-    /* opacity: .5; */
-    animation: ${moveBackGround(false)} 40s linear infinite;
+    &::after {
+      ${AfterLayout()}
+      background-image: url(${fireImg});
+      animation: ${moveBackGround(false)} 40s linear infinite;
+    }
   }
 
   @media (max-width: ${media.mobile}) {
-    background: url(${GymBg});
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding: 100px 0 170px 0;
+    background: url(${GymBg}) center / cover no-repeat;
+    padding: 100px 0px 120px 0px;
     &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      z-index: -1;
+      ${AfterLayout()}
       background: url(${fireImg}) repeat;
-      background-attachment: fixed;
       background-size: contain;
-      animation: ${moveBackGround(true)} 40s linear infinite;
+      animation: ${moveBackGround} 60s linear infinite;
     }
 
     &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 100%;
-      z-index: -1;
+      ${AfterLayout()}
       background: url(${fireImg}) repeat;
-      background-attachment: fixed;
+      top: 50px;
       background-size: contain;
-      animation: ${moveBackGround(true)} 40s linear infinite;
+      animation: ${moveBackGround} 40s linear infinite;
+      opacity: 0.1;
     }
   }
 `;

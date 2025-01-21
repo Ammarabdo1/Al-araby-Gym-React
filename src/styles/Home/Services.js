@@ -57,7 +57,7 @@ export const ServiceCard = styled(Card)`
     left: 0;
     width: 100%;
     height: 100%;
-    background: ${colors.bg_hover};
+    background: ${colors.bg_hover2};
     z-index: -1;
   }
   transition: transform 0.3s ease, background 0.3s ease;
