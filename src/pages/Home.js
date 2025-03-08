@@ -1,35 +1,24 @@
-import React, { useEffect, useState } from "react";
 import Header from "components/Home/Header/Header.jsx";
-import ServicesSection from "components/Home/Services";
+import ServicesSection from "components/Home/Services/Services";
 import About from "components/Home/About";
 import Projects from "components/Home/Projects";
-import Achievements from "components/Home/Achievements";
 import Family from "components/Home/Family";
 import styled from "@emotion/styled";
 import Reviews from "components/Home/Reviews";
-import NavBar from "components/Navbar";
-import ContactUs from "components/ContactUs/ContactUs";
-import Footer from "components/Footer/Footer";
-import FloatingButton from "components/FloatingButton";
-import StartUpLoader from "./StartUp";
+import { useEffect } from "react";
 import useStore from "libs/useStore";
+import Achievements from "components/Home/Achievements/Achievements";
 
 const Home = () => {
-  // const [loader, setLoader] = useState(true);
-  const {loader, setLoader} = useStore()
+  const { open } = useStore();
   useEffect(() => {
-    let LoaderTimer = setTimeout(() => setLoader(false), 4000);
-
-    return () => clearTimeout(LoaderTimer);
-  }, []);
-
-  if (loader) {
-    return <StartUpLoader setLoader={setLoader} />;
-  }
-
+    document.body.style.overflow = open ? "hidden" : "scroll";
+    return () => {
+      document.body.style.overflow = "scroll";
+    };
+  }, [open]);
   return (
     <Container>
-      <NavBar />
       <Header />
       <Achievements />
       <About />
@@ -37,9 +26,6 @@ const Home = () => {
       <ServicesSection />
       <Family />
       <Reviews />
-      <ContactUs />
-      <FloatingButton />
-      <Footer />
     </Container>
   );
 };

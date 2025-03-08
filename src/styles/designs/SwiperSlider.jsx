@@ -26,10 +26,6 @@ export const SwiperContainer = styled.div`
     object-fit: cover;
   }
 
-  .swiper-pagination {
-    /* background: ${colors.title}; */
-  }
-
   .swiper-pagination-bullet {
     background: ${colors.title};
   }
@@ -38,7 +34,8 @@ export const SwiperContainer = styled.div`
   .swiper-button-next {
     color: ${colors.title};
     background: ${colors.bg_hover};
-    padding: 15px;
+    padding: 30px 20px;
+    border-radius: 50%;
   }
 
   @media (max-width: 1000px) {
@@ -66,6 +63,8 @@ export const AutoplayContainer = styled.div`
     justify-content: center;
     font-weight: bold;
     color: ${colors.title};
+    background: ${colors.bg_hover2};
+    border-radius: 50%;
   }
 
   .autoplay-progress svg {

@@ -13,5 +13,10 @@ export const title = {
         links_Title: 'العربي جيم',
         media_Title: 'ميديا',
         contact_Title: 'تواصل معي'
+    },
+    page: {
+        about: 'من نحن',
+        project: 'ابطالنا',
+        contact: 'تواصل معنا',
     }
 }

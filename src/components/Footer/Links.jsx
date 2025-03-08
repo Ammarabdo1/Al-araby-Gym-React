@@ -6,24 +6,23 @@ import { title } from "utils/titles-text";
 import { desc } from "utils/description-text";
 import { colors, media } from "libs/themes";
 import { InitialAos } from "utils/initialAos";
-import Aos from "aos";
 import { Link } from "react-router-dom";
 
 const Links = () => {
-  InitialAos(Aos);
+  InitialAos();
   const handOnClick = () => {
     window.scrollTo(0, 0);
   };
 
-  const pages = ["/", "/about", "/contact", "projects"];
+  const pages = ["/", "/about", "prices", "projects", "/contact"];
   return (
-    <Container item lg={3} md={3} xs={12}>
+    <Container item lg={3} md={3} xs={12} data-aos="fade-left">
       <Title>{title.Footer.links_Title}</Title>
 
       <LinksContainer>
         {pages.map((page, index) => (
           <Link to={page} onClick={handOnClick}>
-            <Typography variant="h6" data-aos="fade-left">
+            <Typography variant="h6">
               {desc.Footer.links[index]}
             </Typography>
           </Link>

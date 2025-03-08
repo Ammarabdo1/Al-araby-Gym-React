@@ -1,5 +1,5 @@
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import GroupIcon from "@mui/icons-material/Group";
+import MedicationLiquidIcon from '@mui/icons-material/MedicationLiquid';
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import SportsGymnasticsIcon from "@mui/icons-material/SportsGymnastics";
 
@@ -13,24 +13,28 @@ import { desc } from "./description-text";
 // Service data
 export const services = [
     {
+      name: 'training',
       icon: <FitnessCenterIcon fontSize="large" />,
       title: title.CardService[0],
       description: desc.Service[0],
       bg: Personal
     },
     {
-      icon: <GroupIcon fontSize="large" />,
+      name: 'nutrition',
+      icon: <MedicationLiquidIcon fontSize="large" />,
       title:  title.CardService[1],
       description: desc.Service[1],
       bg: healthy
     },
     {
+      name: 'recovering',
       icon: <HealthAndSafetyIcon fontSize="large" />,
       title:  title.CardService[2],
       description: desc.Service[2],
       bg: brok
     },
     {
+      name: 'fitness',
       icon: <SportsGymnasticsIcon fontSize="large" />,
       title:  title.CardService[3],
       description: desc.Service[3],

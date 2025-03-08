@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "@emotion/styled";
-import img0 from 'assets/images/Reviews/R20.jpeg'
+import img0 from "assets/images/Reviews/R20.jpeg";
 import img1 from "assets/images/Reviews/R16.jpg";
 import img2 from "assets/images/Reviews/R14.jpg";
 import img3 from "assets/images/Reviews/R7.jpeg";
@@ -17,11 +17,12 @@ import avatarImg3 from "assets/images/Reviews/Saleh3.JPG";
 import { Button } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { InitialAos } from "utils/initialAos";
-import Aos from "aos";
+import { useNavigate } from "react-router-dom";
 
 // Reviews Component
 const Reviews = () => {
-  const isMobile = useMediaQuery(`(max-width: ${media.mobile})`)
+  const navigate = useNavigate();
+  const isMobile = useMediaQuery(`(max-width: ${media.mobile})`);
   const reviews = [
     {
       name: "John Doe",
@@ -48,7 +49,7 @@ const Reviews = () => {
       index < rating ? <StarIcon key={index} /> : <StarBorderIcon key={index} />
     );
   };
-  InitialAos(Aos)
+  InitialAos();
   return (
     <ReviewsSection>
       <Title>
@@ -56,7 +57,7 @@ const Reviews = () => {
       </Title>
       <ReviewsContainer>
         {reviews.map((review, index) => (
-          <ReviewCard key={index} data-aos='zoom-in'>
+          <ReviewCard key={index} data-aos="zoom-in">
             <ReviewerDetails>
               <img src={review.avatar} alt={review.name} />
               <ReviewerName>- ك _ صالح العربي</ReviewerName>
@@ -66,7 +67,14 @@ const Reviews = () => {
               <img src={review.src} alt="" />
             </ReviewImg>
             <StarRating>{renderStars(review.rating)}</StarRating>
-            <MoreButton>المزيد</MoreButton>
+            <MoreButton
+              onClick={() => {
+                navigate("/projects");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
+              المزيد
+            </MoreButton>
           </ReviewCard>
         ))}
       </ReviewsContainer>
@@ -77,7 +85,7 @@ const Reviews = () => {
 const ReviewsSection = styled.section`
   background: ${colors.bg};
   padding: 0px 20px 100px;
-  
+
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -99,7 +107,11 @@ const ReviewsContainer = styled.div`
 `;
 
 const ReviewCard = styled.div`
-  background: linear-gradient(135deg, rgba(34, 34, 34, 0.8), rgba(50, 50, 50, 0.8));
+  background: linear-gradient(
+    135deg,
+    rgba(34, 34, 34, 0.8),
+    rgba(50, 50, 50, 0.8)
+  );
   border: 1px solid #444;
   border-radius: 15px;
   padding: 20px;
@@ -187,10 +199,9 @@ const MoreButton = styled(Button)`
 
   width: 100%; // Make button full-width on smaller screens
   @media (max-width: ${media.mobile}) {
-      font-size: 0.9rem; // Adjust font size for smaller screens
-      padding: 8px 15px; // Reduce padding for smaller screens
+    font-size: 0.9rem; // Adjust font size for smaller screens
+    padding: 8px 15px; // Reduce padding for smaller screens
   }
 `;
-
 
 export default Reviews;

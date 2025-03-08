@@ -1,39 +1,43 @@
-import React, {useState} from "react";
+import React from "react";
 import {
   ProjectsContainer,
   TextSide,
   ImagesSide,
-  StepsContainer,
-  ContactButtonContainer
+  ContactButtonContainer,
 } from "styles/Home/Projects";
 import SwiperJs from "designs/Swiper";
-import { Btn, Description, ProjectSteps, Title } from "designs";
+import { Btn, Description, Title } from "designs";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { title } from "utils/titles-text";
 import { desc } from "utils/description-text";
-import MilitaryTechIcon from '@mui/icons-material/MilitaryTech'
+import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
+import { InitialAos } from "utils/initialAos";
+import { useNavigate } from "react-router-dom";
 
 const Family = () => {
-
-  const [moveArrow1, setMoveArrow1] = useState(false);
-  const [moveArrow2, setMoveArrow2] = useState(false);
-  const [showImg, setShowImg] = useState(false);
-
+  const navigate = useNavigate();
+  InitialAos();
   return (
     <ProjectsContainer container>
-      {/* <TextSide lg={6} md={12} xs={12}>
-
-      </TextSide> */}
-
-      <TextSide lg={6} md={12} xs={12}>
-        <Title>{title.Family} <MilitaryTechIcon/></Title>
-        <Description>
-          {desc.Family}
-        </Description>
+      <TextSide lg={6} md={12} xs={12} data-aos="fade-left">
+        <Title>
+          {title.Family} <MilitaryTechIcon />
+        </Title>
+        <Description>{desc.Family}</Description>
 
         <ContactButtonContainer>
-          <Btn>
-           انضم لاخواتك
+          <Btn
+            onClick={() => {
+              navigate("/prices");
+              setTimeout(() => {
+                const servicesSec = document.getElementById("servicesSec");
+                if (servicesSec) {
+                  servicesSec.scrollIntoView({ behavior: "smooth" });
+                }
+              }, 1300);
+            }}
+          >
+            انضم لاخواتك
             <WhatshotIcon />
           </Btn>
         </ContactButtonContainer>

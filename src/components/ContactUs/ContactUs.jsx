@@ -1,40 +1,39 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { Box, Grid, Typography } from "@mui/material";
 import Form from "./Form";
 import { colors, media } from "libs/themes";
 import fireImg from "assets/images/Fire.png";
 import { AfterLayout } from "utils/GeneralStyles";
-import { flash, moveBackGround } from "libs/frames";
+import { moveBackGround } from "libs/frames";
 import GymBg from "assets/images/ContactUs.JPG";
 import GymBgMonitor from "assets/images/GymBg2.jpg";
 import { title } from "utils/titles-text";
 import { desc } from "utils/description-text";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
-import Aos from "aos";
 import "aos/dist/aos.css";
 import { InitialAos } from "utils/initialAos";
 
 const ContactUs = () => {
-  InitialAos(Aos)
+  InitialAos()
 
   return (
-    <ContactSection>
+    <ContactSection id="emailSection">
       <Container container data-aos="zoom-out">
         <TextSide lg={6} md={6} xs={12}>
           <TextContainer>
-            <Box width={600} className="text">
-              <Typography variant="h6" data-aos="flip-right">
+            <Box width={600} className="text" data-aos="fade-left">
+              <Typography variant="h6">
                 {title.ContactUs}
               </Typography>
-              <Typography variant="h3" data-aos="fade-left">
+              <Typography variant="h3">
                 {desc.ContactUs.content}
-                <span data-aos="zoom-in">
+                <span>
                   {desc.ContactUs.subContent}
                   <AutoGraphIcon className="icon" />
                 </span>
               </Typography>
-              <Typography variant="h5" data-aos="fade-left">
+              <Typography variant="h5">
                 {desc.ContactUs.res}
               </Typography>
             </Box>

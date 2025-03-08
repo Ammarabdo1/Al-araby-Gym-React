@@ -1,26 +1,30 @@
-import AboutHeader from "components/AboutUs/AboutHeader";
-import ContactUs from "components/ContactUs/ContactUs";
-import FloatingButton from "components/FloatingButton";
-import Footer from "components/Footer/Footer";
+import AboutHeader from "components/HeaderPage";
 import About from "components/Home/About";
-import NavBar from "components/Navbar";
 import React from "react";
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
+import AboutInfo from "components/AboutUs/AboutInfo";
+import pigHeaderBgImg from "assets/images/AboutPagePig.jpg";
+import headerBgImg from "assets/images/AboutPage.JPG";
+import { title } from "utils/titles-text";
+import Certificates from "components/AboutUs/Certificates";
+
 const AboutUs = () => {
   return (
     <div>
-      <NavBar />
-      <AboutHeader />
+      <AboutHeader
+        title={title.page.about}
+        headerBgImg={headerBgImg}
+        pigHeaderBgImg={pigHeaderBgImg}
+      />
       <AboutSection />
-      <ContactUs />
-      <FloatingButton />
-      <Footer />
+      <AboutInfo />
+      <Certificates />
     </div>
   );
 };
 
-const AboutSection = styled(About) `
-    padding-top: 50px;
-`
+const AboutSection = styled(About)`
+  padding-top: 50px;
+`;
 
 export default AboutUs;

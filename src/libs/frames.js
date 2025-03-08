@@ -89,3 +89,81 @@ export const MoveTOLeft = (Displacement) => keyframes`
     transform: translateX(0px);
   }
 `;
+
+export const floatAnimation = keyframes`
+0% {
+  transform: translateY(-10px) scale(1.05);
+}
+50% {
+  transform: translateY(0px);
+}
+100% {
+  transform: translateY(-10px) scale(1.05);
+}
+`;
+
+export const shadowEff = keyframes`
+  0% {
+    box-shadow: 0 -10px 20px 2px ${colors.after};
+  }
+
+  50% {
+    box-shadow: 0 -10px 20px 2px ${colors.after_hover};
+  }
+
+  100% {
+    box-shadow: 0 -10px 20px 2px ${colors.after};
+  }
+`;
+
+export const iconMover = keyframes`
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(40px); /* Moves right */
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(30px); /* Slight bounce back */
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(50px); /* Final position */
+    opacity: 0;
+  }
+`;
+
+export const backgroundMover = keyframes`
+  0% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 50% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+`;
+
+export const glow = keyframes`
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+export const ShadowLight = keyframes`
+  0% {
+    box-shadow: 0px 2px 10px rgba(0, 128, 0, 0.58);
+  }
+  50% {
+    box-shadow: 0px 2px 15px rgba(0, 128, 0, 0.28);
+  }
+  100% {
+    box-shadow: 0px 2px 10px rgba(0, 128, 0, 0.58);
+  }
+`;

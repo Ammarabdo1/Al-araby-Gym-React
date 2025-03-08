@@ -1,22 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { Grid, Typography } from "@mui/material";
 import { desc } from "utils/description-text";
 import { title } from "utils/titles-text";
 import { colors } from "libs/themes";
 import { InitialAos } from "utils/initialAos";
-import Aos from "aos";
 
 
 const About = () => {
-InitialAos(Aos)
+InitialAos()
   return (
     <Container item lg={3} md={3} xs={12}>
       <TextContainer>
         <Typography variant="subtitle1" data-aos='zoom-out'>
-          <span>{title.Footer.About_Title}</span> {desc.Footer.about[0]}
-          {desc.Footer.about[1]}
-          {desc.Footer.about[2]}
+          <span>{title.Footer.About_Title}</span> {desc.Footer.about}
         </Typography>
       </TextContainer>
     </Container>

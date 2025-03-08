@@ -4,8 +4,8 @@ export const InitialAos = (options = {}) => {
   useEffect(() => {
     Aos.init({
       duration: options.duration || 1000, //! Default animation duration
-      // once: options.once || false, //! Trigger only once
-      once: true,
+      once: options.once || false, //! Trigger only once
+      // once: true,
       ...options, //! Spread additional options
     });
 

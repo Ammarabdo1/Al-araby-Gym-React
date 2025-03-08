@@ -6,10 +6,9 @@ import { title } from "utils/titles-text";
 import { desc } from "utils/description-text";
 import { colors, media } from "libs/themes";
 import { InitialAos } from "utils/initialAos";
-import Aos from "aos";
 
 const Contact = () => {
-  InitialAos(Aos)
+  InitialAos()
   return (
     <Container item lg={3} md={3} xs={12}>
       <Title>{title.Footer.contact_Title}</Title>

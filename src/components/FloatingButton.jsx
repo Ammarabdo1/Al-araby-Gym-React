@@ -1,30 +1,12 @@
-// import React from 'react'
-// import styled from '@emotion/styled'
-
-// const FloatingButton = () => {
-//   return (
-//     <div>
-
-//     </div>
-//   )
-// }
-
-// const Container = styled.div`
-
-// `
-
-// export default FloatingButton
-
-import React, { useEffect } from "react";
+import React from "react";
 import { Fab, Box } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { InitialAos } from "utils/initialAos";
-import Aos from "aos";
 import { colors } from "libs/themes";
 
 const FloatingButton = () => {
   const phoneNumber = "+201287194379";
-  InitialAos(Aos)
+  InitialAos()
   return (
     <>
       <Box

@@ -1,16 +1,19 @@
 import React from "react";
-import Navbar from "components/Navbar";
-import ContactUs from "components/ContactUs/ContactUs";
-import Footer from "components/Footer/Footer";
-import FloatingButton from "components/FloatingButton";
+import pigHeaderBgImg from "assets/images/ProjectsPigBgHeader.jpg";
+import headerBgImg from "assets/images/ProjectsBgHeader2.jpg";
+import HeaderPage from "components/HeaderPage";
+import { title } from "utils/titles-text";
+import ProjectsInfo from "components/Projects/ProjectsInfo";
 
 const Projects = () => {
   return (
     <div>
-      <Navbar />
-      <ContactUs />
-      <FloatingButton />
-      <Footer />
+      <HeaderPage
+        title={title.page.project}
+        pigHeaderBgImg={pigHeaderBgImg}
+        headerBgImg={headerBgImg}
+      />
+      <ProjectsInfo />
     </div>
   );
 };

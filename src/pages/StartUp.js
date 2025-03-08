@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React ,{ useRef, useEffect } from "react";
 import { CloseLoader, StartUpContainer } from "styles/StartUp";
 import { Button } from "@mui/material";
 
@@ -6,7 +6,6 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import { ScaleLoader } from "react-spinners";
 
-import { useRef, useEffect } from "react";
 import { styled, keyframes } from "@stitches/react";
 import { useTrail, animated } from "@react-spring/web";
 
@@ -19,10 +18,11 @@ import fireImg from "assets/images/Fire.png";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import { InitialAos } from "utils/initialAos";
+import useStore from "libs/useStore";
 
-export default function StartUpLoader(props) {
+export default function StartUpLoader() {
 InitialAos(Aos)
-
+  const {setLoader} = useStore();
   const [trail, api] = useTrail(items.length, () => ({
     rotateX: 0,
   }));
@@ -34,7 +34,7 @@ InitialAos(Aos)
       rotateX: 180,
     });
     isFlipped.current = true;
-  }, []);
+  }, [api]);
 
   const isMobile = useMediaQuery(`(max-width: ${media.tablet})`);
 
@@ -82,7 +82,7 @@ InitialAos(Aos)
         />
 
         <CloseLoader>
-          <Button onClick={() => props.setLoader(false)}>
+          <Button onClick={() => setLoader(false)}>
             <CloseIcon style={{ fontSize: "2rem", color: "#EECE95" }} />
           </Button>
         </CloseLoader>

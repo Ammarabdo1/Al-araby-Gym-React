@@ -11,15 +11,16 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { InitialAos } from "utils/initialAos";
+import { useNavigate } from "react-router-dom";
 
-const About = ({className}) => {
+const About = ({ className }) => {
   const isMobile = useMediaQuery(`(max-width: ${media.mobile})`);
   const [showMoreText, setShowMoreText] = useState(false);
-
-  InitialAos(Aos)
+  const navigate = useNavigate();
+  InitialAos(Aos);
   return (
     <AboutContainer container className={className}>
-      <Text lg={6} md={12} xs={12}>
+      <Text lg={6} md={12} xs={12} data-aos="fade-left">
         <Title>
           {title.About} <AutoStoriesIcon />
         </Title>
@@ -41,7 +42,7 @@ const About = ({className}) => {
               setShowMoreText(false);
               window.scrollBy({
                 top: -1200,
-                behavior: 'smooth'
+                behavior: "smooth",
               });
             }}
           >
@@ -50,7 +51,17 @@ const About = ({className}) => {
           </Button>
         )}
         <ContactBtn>
-          <Btn>
+          <Btn
+            onClick={() => {
+              navigate("/contact");
+              setTimeout(() => {
+                const contactPage = document.getElementById("contactUsPage");
+                if (contactPage) {
+                  contactPage.scrollIntoView({ behavior: "smooth" });
+                }
+              }, 1300);
+            }}
+          >
             تواصل معنا
             <ContactMailIcon />
           </Btn>

@@ -12,13 +12,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import Aos from "aos";
 import "aos/dist/aos.css";
 import { InitialAos } from "utils/initialAos";
 
 export default function SwiperJs({noOfImgs, ImgSrc}) {
   const AlarabyHeros = Array(noOfImgs).fill(null);
-InitialAos(Aos)
+InitialAos()
 
   const progressCircle = useRef(null);
   const progressContent = useRef(null);

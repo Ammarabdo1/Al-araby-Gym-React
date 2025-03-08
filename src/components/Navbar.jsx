@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import navImg from "assets/images/imgFooter.png";
+import navImg from "assets/images/imgFooter2.png";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import EmailIcon from "@mui/icons-material/Email";
@@ -15,6 +15,7 @@ import Btn from "designs/Button";
 import { colors } from "libs/themes.js";
 import ImgInstagram from "assets/images/instagram.ico";
 import { Link, useNavigate } from "react-router-dom";
+import MapIcon from '@mui/icons-material/Map';
 
 function NavBar() {
   const [isMobile, setIsMobile] = useState(false);
@@ -74,7 +75,7 @@ function NavBar() {
           </Navbar.Brand>
 
           {/* //! Links */}
-        <Navbar.Collapse id="navbarScroll" onClick={handleLinkClick} >
+          <Navbar.Collapse id="navbarScroll" onClick={handleLinkClick}>
             <Nav
               className={`mx-auto ${isMobile ? "" : "w-auto"}`}
               style={{
@@ -86,7 +87,7 @@ function NavBar() {
               navbarScroll
             >
               <Link
-                to='/'
+                to="/"
                 className="link d-flex text-decoration-none justify-content-between align-items-center"
                 style={{ marginTop: isMobile && "20px" }}
                 onClick={handleLinkClick}
@@ -95,28 +96,40 @@ function NavBar() {
                 {isMobile && <HomeIcon />}
               </Link>
               <Link
-                to='/about'
+                to="/about"
                 className="link d-flex text-decoration-none justify-content-between align-items-center"
                 onClick={handleLinkClick}
               >
                 <span>من نحن</span>
                 {isMobile && <InfoIcon />}
               </Link>
-              <Nav.Link
-                href="#action3"
+
+              <Link
+                to="/prices"
                 className="link d-flex text-decoration-none justify-content-between align-items-center"
                 onClick={handleLinkClick}
               >
-                <span>تواصل معنا</span>
-                {isMobile && <EmailIcon />}
-              </Nav.Link>
+                <span>الخطط والأسعار</span>
+                {isMobile && <MapIcon />}
+              </Link>
+
+
               <Link
-                to='/projects'
+                to="/projects"
                 className="link d-flex text-decoration-none justify-content-between align-items-center"
                 onClick={handleLinkClick}
               >
                 <span>البعض من ابطالنا</span>
                 {isMobile && <SportsMartialArtsIcon />}
+              </Link>
+
+              <Link
+                to="/contact"
+                className="link d-flex text-decoration-none justify-content-between align-items-center"
+                onClick={handleLinkClick}
+              >
+                <span>تواصل معنا</span>
+                {isMobile && <EmailIcon />}
               </Link>
             </Nav>
             {!isMobile && (

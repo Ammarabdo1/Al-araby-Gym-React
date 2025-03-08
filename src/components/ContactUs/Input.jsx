@@ -1,35 +1,55 @@
-import React, { useEffect } from "react";
-import { TextField } from "@mui/material";
-import ErrorMessage from "./ErrorMessage";
+import React from "react";
+import { InputAdornment, TextField } from "@mui/material";
 import styled from "@emotion/styled";
 import { colors, media } from "libs/themes";
-import Aos from 'aos'
-import 'aos/dist/aos.css'
-import { InitialAos } from "utils/initialAos";
+import ErrorIcon from "@mui/icons-material/ErrorOutline";
 
-const Input = (props) => {
-
-  InitialAos(Aos)
-
+const Input = ({ data, ...props }) => {
   return (
     <Container>
-      {props.error && props.touched && (
-        <ErrorContainer>
-          <ErrorMessage>{props.error}</ErrorMessage>
-        </ErrorContainer>
-      )}
-
       <InputField
-        data-aos='zoom-in'
-        id={props.id}
-        label={props.id}
-        name={props.id}
+        id={data.name}
+        name={data.name}
+        placeholder={data.label}
         value={props.value}
         onChange={props.onChange}
         onBlur={props.onBlur}
         fullWidth
         multiline
-        rows={props.id === "message" ? 5 : 1}
+        variant={data.name === "message" ? "filled" : "filled"}
+        error={props.error && props.touched}
+        color={
+          props.touched && props.error
+            ? "error"
+            : props.touched
+            ? "success"
+            : "primary"
+        }
+        rows={data.name === "message" ? 5 : 1}
+        helperText={
+          props.error && props.touched ? (
+            <ErrorContainer error={props.error && props.touched}>
+              {props.error}
+            </ErrorContainer>
+          ) : (
+            <ErrorContainer>success</ErrorContainer>
+          )
+        }
+        slotProps={{
+          input: {
+            endAdornment: (
+              <InputAdornment position="end">
+                {props.error && props.touched ? (
+                  <ErrorIcon color="error" />
+                ) : !props.touched ? (
+                  <data.icons.default sx={{ color: colors.after }} />
+                ) : (
+                  <data.icons.complete color="success" />
+                )}
+              </InputAdornment>
+            ),
+          },
+        }}
       />
     </Container>
   );
@@ -40,8 +60,7 @@ const Container = styled.div`
 `;
 
 const InputField = styled(TextField)`
-  margin-bottom: 30px;
-
+  margin-bottom: 10px;
   & .MuiInputLabel-root {
     color: ${colors.des}; // Default label color: ;
   }
@@ -50,30 +69,20 @@ const InputField = styled(TextField)`
     color: ${colors.title}; // Label color when focused
   }
 
-  & .MuiOutlinedInput-root {
-    & fieldset {
-      border-color: ${colors.des}; // Default border color
-    }
+  & .MuiInputBase-root {
+    color: ${colors.link}; // Input text color
+    direction: rtl;
+    background: ${colors.bg_hover2};
+    background: ${({ error }) => (error ? colors.after_hover : colors.bg_hover2)};
 
-    &:hover fieldset {
-      border-color: ${colors.after_hover}; // Border color on hover
+    &.Mui-focused {
+      background: ${({ error }) => (error ? colors.after_hover : colors.bg)};
     }
-
-    &.Mui-focused fieldset {
-      border-color: ${colors.title}; // Border color when focused
-    }
-    ${props => props.id !== 'email' && ('direction: rtl;')}
-    color: ${colors.des}; // Input text color
   }
 `;
 
 const ErrorContainer = styled.div`
-  @media (max-width: ${media.mobile}) {
-    span {
-      font-size: 3vw ;
-      font-weight: 900;
-    }
-  }
+  visibility: ${({ error }) => (error ? "visible" : "hidden")};
 `;
 
 export default Input;

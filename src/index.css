@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -7,7 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+::selection {
+  background: #ffde87;
+  color:  #1f1f1f;
+}
 
 ::-webkit-scrollbar {
   width: 12px;
@@ -25,6 +30,7 @@ body {
 html {
   scrollbar-color: #ffde87 #1f1f1f;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 
 * {
