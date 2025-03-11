@@ -16,6 +16,7 @@ const Btn = ({
   return (
     <ButtonContainer
       disabled={disabled}
+      loading={loading}
       type={type}
       startIcon={startIcon}
       endIcon={endIcon}

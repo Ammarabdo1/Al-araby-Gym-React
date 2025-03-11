@@ -24,6 +24,8 @@ const useStore = create(
         planType: 0,
         duration: 0,
         finalPrice: 0,
+        offerPrice: 0,
+        discount: 0,
       },
 
       setSubPrices: (type, price) =>
@@ -41,14 +43,18 @@ const useStore = create(
           };
         }),
 
+      player: { name: "", phone: "", sendValid: true },
+      setPlayer: (player) => set({ player }),
+
       open: false,
-      set: () => set( (state) => ({ open: !state.open })),
+      set: () => set((state) => ({ open: !state.open })),
     }),
     {
       name: "Loader-State",
       partialize: (state) => ({
         loader: state.loader,
         loaderTimer: state.loaderTimer,
+        player: state.player
       }),
     }
   )

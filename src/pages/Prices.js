@@ -9,9 +9,9 @@ import bigPricesBg from 'assets/images/BigPricesBgHeader.jpg'
 const Prices = () => {
   const { showPopupPrices } = useStore();
   useEffect(() => {
-    document.body.style.overflow = showPopupPrices ? "hidden" : "scroll";
+    document.body.style.overflow = showPopupPrices ? "hidden" : "auto";
     return () => {
-      document.body.style.overflow = "scroll";
+      document.body.style.overflow = "auto";
     };
   }, [showPopupPrices]);
 

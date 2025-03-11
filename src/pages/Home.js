@@ -12,9 +12,9 @@ import Achievements from "components/Home/Achievements/Achievements";
 const Home = () => {
   const { open } = useStore();
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "scroll";
+    document.body.style.overflow = open ? "hidden" : "auto";
     return () => {
-      document.body.style.overflow = "scroll";
+      document.body.style.overflow = "auto";
     };
   }, [open]);
   return (

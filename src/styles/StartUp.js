@@ -1,10 +1,8 @@
-import { colors } from "libs/themes";
 import styled from "styled-components";
-import { AfterLayout } from "utils/GeneralStyles";
 
 export const StartUpContainer = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
 `;

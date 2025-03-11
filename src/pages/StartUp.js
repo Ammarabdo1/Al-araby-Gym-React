@@ -20,6 +20,31 @@ import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import { InitialAos } from "utils/initialAos";
 import useStore from "libs/useStore";
 
+const items = [
+  "e",
+  "l",
+  "-",
+  "a",
+  "r",
+  "a",
+  "b",
+  "y",
+  <svg width="80%" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="30%" stopColor={colors.title} />
+        <stop offset="30%" stopColor={colors.subTitle} />
+        <stop offset="80%" stopColor={colors.title} />
+      </linearGradient>
+    </defs>
+    <FitnessCenterIcon
+      sx={{
+        fill: "url(#iconGradient)", // Reference the gradient
+      }}
+    />
+  </svg>,
+];
+
 export default function StartUpLoader() {
 InitialAos(Aos)
   const {setLoader} = useStore();
@@ -94,7 +119,7 @@ InitialAos(Aos)
 
 const AppContainer = styled("div", {
   position: "relative",
-  width: "100vw",
+  width: "100%",
   height: "100vh",
   display: "flex",
   flexDirection: "column",
@@ -195,27 +220,3 @@ const BackBox = styled(animated.div, {
   },
 });
 
-const items = [
-  "a",
-  "l",
-  "-",
-  "a",
-  "r",
-  "a",
-  "b",
-  "i",
-  <svg width="80%" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="30%" stopColor={colors.title} />
-        <stop offset="30%" stopColor={colors.subTitle} />
-        <stop offset="80%" stopColor={colors.title} />
-      </linearGradient>
-    </defs>
-    <FitnessCenterIcon
-      sx={{
-        fill: "url(#iconGradient)", // Reference the gradient
-      }}
-    />
-  </svg>,
-];

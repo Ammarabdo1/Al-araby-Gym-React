@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -13,20 +13,22 @@ import { chooseDes } from "../Choose/ChooseDes";
 import useStore from "libs/useStore";
 import { PlansTypes } from "components/Prices/Plans/PlansTypes";
 import { GetTotalPrice } from "./GetTotalPrice";
-import { Link } from "react-router-dom";
-import {KeyboardDoubleArrowUp, ExpandLess, KeyboardArrowUpSharp} from "@mui/icons-material";
+import { KeyboardDoubleArrowUp } from "@mui/icons-material";
+import ConfirmForm from "./ConfirmForm";
 
 export default function SubscriptionSummary() {
   const result = chooseDes.Result || {}; // Prevent undefined error
-  const { planType, serviceName, duration, subPrices } = useStore();
+  const { planType, serviceName, duration, subPrices, setSubPrices, player } =
+    useStore();
   const plan = PlansTypes.find((pt) => pt.type === planType) || {}; // Prevent undefined error
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const [totalCost, setTotalCost] = React.useState("");
 
   React.useEffect(() => {
     setTotalCost(
-      GetTotalPrice(subPrices) ? (
-        <PriceOffer>{GetTotalPrice(subPrices)} EGP</PriceOffer>
+      GetTotalPrice(subPrices, setSubPrices) ? (
+        <PriceOffer>{GetTotalPrice(subPrices, setSubPrices)} EGP</PriceOffer>
       ) : (
         ""
       )
@@ -57,15 +59,26 @@ export default function SubscriptionSummary() {
               sx={{ fontWeight: "bold", color: colors.after_hover2 }}
             >
               {item.text}
-              {(index < arr.length - 1 && (Array.isArray(subscribeData[index]) ? subscribeData[index].length <= 0 : true) ) && (
-                <IconButton
-                  sx={{ position: "absolute", top: '-5px', right: '0px'}}
-                  href={`#${item.id}`}
-                  aria-label={`up to ${item.id} section`}
-                >
-                  <KeyboardDoubleArrowUp fontSize='large' sx={{color: colors.link, borderRadius: '50%', padding: '7px', boxShadow: `0 12px 10px 1px ${colors.after_hover}` }} />
-                </IconButton>
-              )}
+              {index < arr.length - 1 &&
+                (Array.isArray(subscribeData[index])
+                  ? subscribeData[index].length <= 0
+                  : true) && (
+                  <IconButton
+                    sx={{ position: "absolute", top: "-5px", right: "0px" }}
+                    href={`#${item.id}`}
+                    aria-label={`up to ${item.id} section`}
+                  >
+                    <KeyboardDoubleArrowUp
+                      fontSize="large"
+                      sx={{
+                        color: colors.link,
+                        borderRadius: "50%",
+                        padding: "7px",
+                        boxShadow: `0 12px 10px 1px ${colors.after_hover}`,
+                      }}
+                    />
+                  </IconButton>
+                )}
             </Typography>
             <Typography variant="body1" sx={{ color: "#ddd" }}>
               {Array.isArray(subscribeData[index]) ? (
@@ -96,18 +109,46 @@ export default function SubscriptionSummary() {
       </Typography>
 
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 3 }}>
-        <Button href='#service' variant="outlined" color="warning">
+        <Button href="#service" variant="outlined" color="warning">
           {result.editButton || "Edit"}
         </Button>
-        <Button variant="contained" color="success" sx={{color: colors.link ,'&.Mui-disabled': {color: colors.link_hover}}} disabled={!subPrices.finalPrice}>
+        <Button
+          variant="contained"
+          color="success"
+          sx={{
+            color: colors.link,
+            "&.Mui-disabled": { color: colors.link_hover },
+          }}
+          disabled={!subPrices.finalPrice}
+          onClick={() =>
+            player.sendValid
+              ? setShowConfirm(true)
+              : alert(
+                  `✅ تم إرسال التفاصيل بالفعل! 📩 سنقوم بالرد عليك علي الرقم ${player.phone} خلال 48 ساعة. شكراً لصبرك! 😊`
+                )
+          }
+        >
           {result.confirmButton || "Confirm"}
         </Button>
       </Box>
+
+      {/*//! confirm form */}
+      {showConfirm && (
+        <ConfirmWrapper onClick={() => setShowConfirm(false)}>
+          <ConfirmForm
+            subscribeData={subscribeData}
+            setShowConfirm={setShowConfirm}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </ConfirmWrapper>
+      )}
+      {/*//* end confirm form */}
     </SummaryContainer>
   );
 }
 
 const SummaryContainer = muiStyled(Paper)({
+  position: "relative",
   backgroundColor: "rgba(20, 20, 20, 0.95)",
   color: "#fff",
   padding: "20px",
@@ -131,4 +172,16 @@ const PriceOffer = muiStyled(Box)({
     letterSpacing: "1px",
     color: colors.des,
   },
+});
+
+const ConfirmWrapper = muiStyled(Box)({
+  position: "absolute",
+  top: "0",
+  right: "0",
+  width: "100%",
+  height: "100%",
+  backgroundColor: colors.bg_hover2,
+  backdropFilter: "blur(5px)",
+  display: "grid",
+  placeItems: "center",
 });

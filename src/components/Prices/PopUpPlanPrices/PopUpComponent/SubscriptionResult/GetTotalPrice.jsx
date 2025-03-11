@@ -5,41 +5,64 @@ import OfferIcon from "@mui/icons-material/PercentSharp";
 import { styled as muiStyled } from "@mui/system";
 import { Box } from "@mui/material";
 import { ShadowLight } from "libs/frames";
-import { colors } from "libs/themes";
+import { useEffect } from "react";
 
 function getOffer(finalPrice, offer) {
   let result = (finalPrice * (100 - offer)) / 100;
   return Math.floor(result / 50) * 50;
 }
 
-function CustomOffer(subPrices) {
+function CustomOffer({subPrices, setSubPrices}) {
   const CustomDiscounts = { 1: 15, 3: 20, 6: 30, 12: 50 };
   const discount = CustomDiscounts[subPrices.duration];
+  const offerPrice = getOffer(subPrices.finalPrice, discount);
 
-  return discount ? (
+  useEffect(() => {
+    setSubPrices("discount", discount);
+    setSubPrices("offerPrice", offerPrice);
+  }, [discount, offerPrice]);
+
+  if (!discount) {
+    return null;
+  }
+
+  return (
     <span>
-      <s>{subPrices.finalPrice}</s> - {getOffer(subPrices.finalPrice, discount)}
+      <s>{subPrices.finalPrice}</s> - {offerPrice}
       <PercentOffer custom={true}>
         <p>خصم خاص</p>
         <span>
-          <CustomPercentIcon style={{
-                background: "rgba(0, 128, 0, 0.252)",
-                boxShadow: "-5px 0 10px 2px rgba(0, 128, 0, 0.252)",
-                borderRadius: "50%",
-              }} /> {discount}
+          <CustomPercentIcon
+            style={{
+              background: "rgba(0, 128, 0, 0.252)",
+              boxShadow: "-5px 0 10px 2px rgba(0, 128, 0, 0.252)",
+              borderRadius: "50%",
+            }}
+          />{" "}
+          {discount}
         </span>
       </PercentOffer>
     </span>
-  ) : null;
+  );
 }
 
-function GeneralOffer(subPrices) {
+function GeneralOffer({subPrices, setSubPrices}) {
   const GeneraDiscounts = { 1: 10, 3: 15, 6: 25, 12: 40 };
   const discount = GeneraDiscounts[subPrices.duration];
+  const offerPrice = getOffer(subPrices.finalPrice, discount);
 
-  return discount ? (
+  useEffect(() => {
+    setSubPrices("discount", discount);
+    setSubPrices("offerPrice", offerPrice);
+  }, [discount, offerPrice]);
+
+  if (!discount) {
+    return null;
+  }
+
+  return (
     <span>
-      <s>{subPrices.finalPrice}</s> - {getOffer(subPrices.finalPrice, discount)}
+      <s>{subPrices.finalPrice}</s> - {offerPrice}
       <PercentOffer>
         <span>
           <p style={{ width: "min-content" }}>
@@ -60,15 +83,15 @@ function GeneralOffer(subPrices) {
         </span>
       </PercentOffer>
     </span>
-  ) : null;
+  );
 }
 
-export function GetTotalPrice(subPrices) {
+export function GetTotalPrice(subPrices, setSubPrices) {
   if (subPrices.finalPrice) {
     if (subPrices.planType === 1800 && subPrices.service >= 2) {
-      return CustomOffer(subPrices);
+      return <CustomOffer subPrices={subPrices} setSubPrices={setSubPrices} />;
     } else {
-      return GeneralOffer(subPrices);
+      return <GeneralOffer subPrices={subPrices} setSubPrices={setSubPrices} />;
     }
   } else {
     return 0;

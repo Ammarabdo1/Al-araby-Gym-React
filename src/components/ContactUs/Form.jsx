@@ -49,6 +49,7 @@ const Form = () => {
     },
   ];
 
+  //! formik
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -71,6 +72,7 @@ const Form = () => {
     }),
 
     async onSubmit(values, { resetForm }) {
+      if (loader) return;
       setLoader(true);
       try {
         await emailjs.send(
@@ -106,7 +108,7 @@ const Form = () => {
             error={formik.errors[data.name]}
           />
         ))}
-        <Btn disabled={loader} shadow="calm" type="submit" aria-busy={loader}>
+        <Btn loading={loader} disabled={loader} shadow="calm" type="submit" aria-busy={loader}>
           <span style={{ display: "flex", alignItems: "center", gap: "7px" }}>
             {loader ? (
               <>
